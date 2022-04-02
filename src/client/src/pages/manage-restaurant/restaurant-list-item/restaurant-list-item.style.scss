@@ -1,0 +1,50 @@
+.restaurant-list-item{
+    height: 3em;
+    margin-top: 1em;
+    margin-bottom:0.5em;
+    border-radius: 3em;
+    width: 100%;
+    background-color: aliceblue;
+
+    cursor: pointer;
+    &:hover{
+        background-color: green;
+    }
+    font-size:large;
+    
+    .imgdiv{
+        align-items: left;
+        text-align: left;
+        display: inline-block;
+        margin-right: 2em;
+        width: 50%;
+    }
+
+    .desc{
+        align-items: right;
+        text-align: right;
+        display: inline-block;
+        width: 50%;
+    }
+
+}
+.delete_button{
+    background-color: aliceblue;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #fa5e5e;
+        color: white;
+        font-size: large;
+        font-weight: 1000;
+    }
+}

@@ -1,0 +1,23 @@
+.member-page {
+  width: calc(100% - 40px);
+  background: #2bc0e4;
+  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  padding: 20px;
+  min-height: 400px;
+  height: auto;
+  .heading {
+    font-size: 24px;
+    font-family: cursive;
+    margin-bottom: -30px;
+    margin-top: -30px;
+  }
+  .members {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    flex-wrap: wrap;
+    padding: 10px;
+    height: auto;
+  }
+}

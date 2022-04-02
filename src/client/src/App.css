@@ -1,0 +1,16 @@
+.App {
+  background-color: #5d5367;
+  height: 100%;
+  width: 100%;
+}
+.blur-background {
+  width: 100%;
+  height: 100%;
+  background: #2bc0e4;
+  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  top: 0;
+  right: 0;
+  z-index: 2;
+  position: absolute;
+}

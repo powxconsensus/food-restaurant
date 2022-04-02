@@ -1,0 +1,35 @@
+.display-card {
+  height: 200px;
+  width: 280px;
+  border-radius: 20px;
+  color: black;
+  cursor: pointer;
+  .display-card-images {
+    height: calc(100% - 40px);
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+  }
+  hr {
+    color: rgb(49, 45, 45);
+    margin: 0;
+    height: 0.05px;
+  }
+  .card-display-name {
+    background: #2bc0e4;
+    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+    background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    border-radius: 0px 0px 20px 20px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-family: cursive;
+  }
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+}

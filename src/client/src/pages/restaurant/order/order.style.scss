@@ -1,0 +1,85 @@
+.order-list {
+  width: calc(100% - 40px);
+  padding: 20px;
+  background: #1b86a1;
+  background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+  background: linear-gradient(to top, #eaecc6, #1b86a1);
+  .dish-item {
+    width: calc(100% - 16px);
+    height: 130px;
+    padding: 8px;
+    background: #1b86a1;
+    background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+    background: linear-gradient(to top, #eaecc6, #1b86a1);
+    display: flex;
+    hr {
+      color: white;
+      height: 1px;
+      margin: 0;
+      width: 100%;
+    }
+    .dish-details {
+      width: calc(100% - 120px);
+      display: flex;
+      .name-rating {
+        width: calc(80% - 30px);
+        height: 100%;
+        background: #1b86a1;
+        background: -webkit-linear-gradient(to top, #eaecc6, #1b86a1);
+        background: linear-gradient(to top, #eaecc6, #1b86a1);
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        .dish-name {
+          font-size: 30px;
+        }
+        .dish-cost {
+          font-size: 18px;
+          font-family: monospace;
+          font-weight: 500;
+        }
+        .dish-rating {
+          font-size: 18px;
+          margin-top: 10px;
+          display: flex;
+          .filled {
+            color: gold;
+          }
+          .empty {
+            color: white;
+          }
+        }
+      }
+      .add-to-cart {
+        width: 20%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        div {
+          border-radius: 10px;
+          background: #2bc0e4;
+          background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+          background: linear-gradient(to top, #eaecc6, #2bc0e4);
+          padding: 10px 20px 10px 20px;
+          cursor: pointer;
+          &:hover {
+            background: #2bc0e4;
+            background: -webkit-linear-gradient(to bottom, #eaecc6, #2bc0e4);
+            background: linear-gradient(to bottom, #eaecc6, #2bc0e4);
+          }
+        }
+      }
+    }
+
+    .dish-image {
+      height: 100%;
+      width: 120px;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 10px 0px 0px 10px;
+      }
+    }
+  }
+}

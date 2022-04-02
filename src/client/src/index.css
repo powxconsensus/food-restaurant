@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+/* custom scroller for friend-list only */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(36, 58, 171);
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2bc0e4;
+  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2bc0e4;
+  background: -webkit-linear-gradient(to bottom, #eaecc6, #2bc0e4);
+  background: linear-gradient(to bottom, #eaecc6, #2bc0e4);
+}

@@ -1,0 +1,42 @@
+{
+  "name": "food-delivery-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyanshu-678/food-delivery-backend.git"
+  },
+  "author": "Priyanshu Mishra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyanshu-678/food-delivery-backend/issues"
+  },
+  "homepage": "https://github.com/priyanshu-678/food-delivery-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^6.3.0",
+    "helmet": "^5.0.2",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.8",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "nanoid": "^3.3.2",
+    "razorpay": "^2.8.1",
+    "rotating-file-stream": "^3.0.3",
+    "sharp": "^0.30.3",
+    "validator": "^13.7.0",
+    "xss-clean": "^0.1.1"
+  }
+}

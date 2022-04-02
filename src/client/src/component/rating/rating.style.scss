@@ -1,0 +1,11 @@
+.display-rating {
+  display: flex;
+  margin-top: 8px;
+  font-size: 22px;
+  .filled {
+    color: gold;
+  }
+  .empty {
+    color: white;
+  }
+}

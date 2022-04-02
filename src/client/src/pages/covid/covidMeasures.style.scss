@@ -1,0 +1,28 @@
+.covid-container {
+  background: #2bc0e4;
+  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  width: 100%;
+  height: auto;
+  margin-top: -35px;
+  .heading {
+    font-size: 28px;
+    font-weight: 500;
+    font-family: cursive;
+    background: #2bc0e4;
+    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+    background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    text-align: center;
+  }
+
+  .content {
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 5% 10% 5% 10%;
+  }
+}
