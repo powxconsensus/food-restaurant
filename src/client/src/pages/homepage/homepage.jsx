@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import DisplayCard from "../../component/display-card/display-card.component";
 import "./home-page.style.scss";
 import { Helmet } from "react-helmet";
+import Loading from "./../../component/loading/loading.component";
 import axios from "axios";
 import { setRestaurantWithItem } from "./../../redux/restaurant/restaurant.actions";
 
@@ -50,7 +51,7 @@ class HomePage extends React.Component {
           <Helmet>
             <title>{"Food For Foodie"}</title>
           </Helmet>
-          <div className="loading">Loading...</div>
+          <Loading height={"200px"} />
         </>
       );
     if (this.state.fourRes.length == 0) this.setFourRes();

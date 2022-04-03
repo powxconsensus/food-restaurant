@@ -15,6 +15,7 @@ exports.addRestaurant = catchAsync(async (req, res, next) => {
     address,
     contactNo,
     owner: req.user.id,
+    images: ["defaultRes.png"],
   });
   res.status(200).json({
     status: "OK",

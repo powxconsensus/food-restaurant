@@ -15,6 +15,7 @@ exports.addFoodItemInRestaurant = catchAsync(async (req, res, next) => {
     pricePerQuantity,
     restaurant: restaurantId,
     quantity,
+    images: ["fdDefault.jpg"],
   });
   req.restaurant.restaurantFoodItems.push(foodItem._id);
   req.restaurant.save();

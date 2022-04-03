@@ -18,13 +18,13 @@ class RestaurantListItem extends React.Component {
   render() {
     const { name, _id, address, images, applicationStatus } =
       this.props.restaurant;
+    let image = `http://localhost:4000/fd/public/restaurant/${_id}/images/${images[0]}`;
+    if (images[0] === "defaultRes.png")
+      image = `http://localhost:4000/fd/public/default/defaultRes.png`;
     return (
       <div className="restaurant-list-item">
         <div className="imgdiv">
-          <img
-            src={`http://localhost:4000/fd/public/restaurant/${_id}/images/${images[0]}`}
-            alt="Image goes here"
-          />
+          <img src={image} alt="Image goes here" />
         </div>
         <div
           className="desc"
