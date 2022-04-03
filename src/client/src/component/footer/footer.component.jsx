@@ -9,7 +9,7 @@ const Footer = () => {
           <span>
             <i class="fa fa-map-marker"></i>
           </span>
-          <span className="ho-address">tada, Sri city, AP, India, 234444</span>
+          <span class="ho-address">Tada, Sri city, AP, India, 234444</span>
         </section>
         <section>
           <span>
@@ -27,18 +27,13 @@ const Footer = () => {
       <span class="border-shape"></span>
       <div class="bottom_content">
         <section>
-          <a href="#">
-            <i class="fa fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-instagram"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-telegram"></i>
-          </a>
+        <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
         </section>
         <section>
           <Link to="/">Home</Link>

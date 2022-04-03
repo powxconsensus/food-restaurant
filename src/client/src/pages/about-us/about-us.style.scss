@@ -1,6 +1,6 @@
 .about-us {
   width: calc(100% - 40px);
-  padding: 20px;
+  padding: 30px;
   min-height: 200px;
   height: auto;
   background: #2bc0e4;
@@ -9,14 +9,14 @@
   .about-us-heading {
     font-size: 28px;
     font-weight: 500;
-    font-family: cursive;
+    font-family: Arial, Helvetica, sans-serif;;
     background: #2bc0e4;
-    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
+    background: -webkit-linear-gradient(to top, #eaecc6, #78888c);
     background: linear-gradient(to top, #eaecc6, #2bc0e4);
   }
   .aboutus-content {
     font-size: 20px;
-    font-family: cursive;
+    font-family: Helvetica;
     font-weight: 400;
     display: flex;
     justify-content: center;

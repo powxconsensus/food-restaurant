@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/priyanshu-678/ChitChat#readme",
   "dependencies": {
-    "concurrently": "^6.2.1"
+    "concurrently": "^6.5.1"
   }
 }
