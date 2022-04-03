@@ -13,7 +13,7 @@ Router.route("/mine").get(
 );
 
 Router.route("/:restaurantId")
-  .get(authController.protectAccess, restaurantController.getRestaurantById)
+  .get(restaurantController.getRestaurantById)
   .patch(
     authController.protectAccess,
     authController.onlyRestaurantOwner,

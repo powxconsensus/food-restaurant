@@ -25,3 +25,10 @@ export const banRestaurant = (payload) => {
     payload,
   };
 };
+
+export const setCurrentRestaurant = (payload) => {
+  return {
+    type: "SET_CURRENT_RESTAURANT",
+    payload,
+  };
+};

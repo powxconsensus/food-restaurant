@@ -1,13 +1,72 @@
 .food-item{
-    width: calc(100% - 20px);
-    padding: 20px 10px 20px 10px;
+    width: calc(100% - 30px);
+    padding: 10px 0px 10px 30px;
     height: auto;
     background-color: green;
  	margin-bottom: 5px;
-    .extend-this-edit-option{
-        height: 100px;
+     .two-component{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .food-item-img{
+            height: 100px;
+            width: 100px;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .food-describe{
+            color: black;
+            font-size: 24px;
+        }
+        .fooditem-operations{
+            display: flex;
+            .food-item-operation{
+                font-size: 36px;
+                cursor: pointer;
+                margin-right: 30px;
+            }
+            .remove-food-item{
+                &:hover{
+                    color: red;
+                }
+            }
+            .edit-food-item{
+                &:hover{
+                    color: rgb(45, 203, 113);
+                }
+            }
+        }
+      
+     }
+     .extend-this-edit-option{
+        min-height: 100px;
         width: 100%;
+        margin-top: 10px;
         background-color: red;
+        height: auto;
+        .save-btn{
+            border:1px solid black;
+            background-color: green;
+            cursor: pointer;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            justify-content: center;
+            &:hover{
+                background-color: blue;
+            }
+        }
+        p{
+            font-size: 24px;
+        }
+        .fi-input-field{
+            input{
+
+            }
+        }
     }   
 }
 

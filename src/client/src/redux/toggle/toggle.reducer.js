@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
   isSignInWindowOpen: false,
   isSignUpWindowOpen: false,
+  isAddFoodWindowOpen: false,
 };
 
 const toggleReducer = (state = INITIAL_STATE, actions) => {
@@ -16,6 +17,13 @@ const toggleReducer = (state = INITIAL_STATE, actions) => {
         ...state,
         isSignInWindowOpen: false,
         isSignUpWindowOpen: actions.payload,
+      };
+    case "TOGGLE_ADD_FOOD_WINDOW":
+      return {
+        ...state,
+        isSignInWindowOpen: false,
+        isSignUpWindowOpen: false,
+        isAddFoodWindowOpen: actions.payload,
       };
     default:
       return state;

@@ -54,7 +54,7 @@ class Review extends React.Component {
     const { restaurant, user } = this.props;
     const review = restaurant
       ? restaurant.map((res) => {
-          if (res.id == this.props.restaurant_id) return res.review;
+          if (res.id === this.props.restaurant_id) return res.review;
         })[0]
       : null;
     return (

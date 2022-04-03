@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SignIn from "../signin/signin.component";
 import SignUp from "../signup/signup.component";
+import AddFoodItem from "../../pages/manage-resturant-by-ID/add-food-item/add-food-item.component";
 import { store } from "./../../redux/store";
 import { Link } from "react-router-dom";
 import { clearCart } from "../../redux/cart/cart.actions";
@@ -100,6 +101,7 @@ class Header extends React.Component {
       >
         {this.props.isSignInOpen ? <SignIn /> : null}
         {this.props.isSignUpOpen ? <SignUp /> : null}
+        {this.props.isAddFoodWindowOpen ? <AddFoodItem /> : null}
         <div className="overlayed-navbar">
           <div className="left-block-navbar">
             <div
@@ -268,6 +270,7 @@ const mapStateToProps = (state) => {
     isSignUpOpen: state.toggle.isSignUpWindowOpen,
     user: state.user.user,
     restaurantWithItems: state.restaurant.restaurantWithItems,
+    isAddFoodWindowOpen: state.toggle.isAddFoodWindowOpen,
     cartItems: state.cart.cartItems,
   };
 };

@@ -66,7 +66,7 @@ class SignUp extends React.Component {
       <div
         className="sign-up"
         onClick={(event) => {
-          if (event.target.className === "sign-in")
+          if (event.target.className === "sign-up")
             this.props.toggleSignUpWindow(false);
         }}
       >

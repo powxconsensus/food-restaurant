@@ -11,3 +11,10 @@ export const toggleSignUpWindow = (isOpen) => {
     payload: isOpen,
   };
 };
+
+export const toggleAddFoodWindow = (payload) => {
+  return {
+    type: "TOGGLE_ADD_FOOD_WINDOW",
+    payload,
+  };
+};

@@ -1,9 +1,15 @@
 const INITIAL_STATE = {
   restaurantWithItems: [],
+  currentRestaurant: "",
 };
 
 const RestaurantReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case "SET_CURRENT_RESTAURANT":
+      return {
+        ...state,
+        currentRestaurant: action.payload,
+      };
     case "SET_RESTAURANT_WITH_DISHES":
       return {
         ...state,
@@ -13,7 +19,7 @@ const RestaurantReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         restaurantWithItems: state.restaurantWithItems.map((res) => {
-          if (res.id == action.payload.restaurant_id) {
+          if (res.id === action.payload.restaurant_id) {
             return {
               ...res,
               review: [...res.review, action.payload],

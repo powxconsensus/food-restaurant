@@ -19,7 +19,7 @@ class ManageRestaurantById extends React.Component {
         method: "GET",
         url: `/fd/restaurant/${restaurantId}`,
       });
-      if (response.status == 200) {
+      if (response.status === 200) {
         this.setState({
           prevRestaurantId: restaurantId,
           restaurant: response.data.restaurant,
@@ -30,20 +30,25 @@ class ManageRestaurantById extends React.Component {
     }
   }
   componentDidUpdate() {
-    if (this.state.restaurantId !== this.props.params.restaurantId) {
+    if (this.state.prevRestaurantId !== this.props.params.restaurantId) {
     }
   }
   render() {
     const { restaurant } = this.state;
+    const { images, description, contactNo, openCloseStatus, address } =
+      restaurant;
     return (
       <div className="manage-restaurant-ById">
         <div className="restaurant-name">{restaurant.name}</div>
-
         <div className="restraunt-info">
-          <div className="imgdiv">Add image from backend here</div>
-
+          <div className="imgdiv">
+            <img src="https://bit.ly/3KhrRXe" alt="" />
+          </div>
           <div className="describe-restaurant-data">
-            {restaurant.description}
+            <div className="res-desc">{description}</div>
+            <div className="res-desc">{contactNo}</div>
+            <div className="res-desc">{openCloseStatus ? "Open" : "Close"}</div>
+            <div className="res-desc">{address}</div>
           </div>
         </div>
 
