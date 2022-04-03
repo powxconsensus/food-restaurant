@@ -25,6 +25,33 @@ class Order extends React.Component {
       this.setState({ foodItems: response.data.foodItems });
     }
   }
+  handleAddToCart = async (order) => {
+    const { user } = this.props;
+    if (!user) {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      toggleSignInWindow(true);
+    } else {
+      console.log({
+        foodItemId: order._id,
+        quantity: 1,
+      });
+      try {
+        const response = await axios({
+          method: "PATCH",
+          url: "/fd/cart",
+          data: {
+            foodItemId: order._id,
+            quantity: 1,
+          },
+        });
+
+        this.props.addToCart(order);
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+  };
   render() {
     const { user, toggleSignInWindow } = this.props;
     const { foodItems } = this.state;
@@ -52,20 +79,13 @@ class Order extends React.Component {
                     ))}
                   </div>
                   <div className="dish-cost">
-                    {order.price}
+                    {order.pricePerQuantity}
                     {" Rs"}
                   </div>
                 </div>
                 <div className="add-to-cart">
                   <div
-                    onClick={() => {
-                      if (user) this.props.addToCart(order);
-                      else {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                        toggleSignInWindow(true);
-                      }
-                    }}
+                    onClick={async (event) => await this.handleAddToCart(order)}
                     style={{
                       opacity: `${user ? 1 : 0.8}`,
                     }}

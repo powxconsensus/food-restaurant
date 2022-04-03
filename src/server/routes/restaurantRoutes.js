@@ -7,6 +7,11 @@ Router.route("/")
   .post(authController.protectAccess, restaurantController.addRestaurant)
   .get(restaurantController.getRecommendationRestaurant);
 
+Router.get(
+  "/searchItems",
+  restaurantController.getFilteredRestaurantAndFoodItem
+);
+
 Router.route("/mine").get(
   authController.protectAccess,
   restaurantController.getRestaurantByUserId
@@ -27,4 +32,5 @@ Router.patch(
   authController.protectAccess,
   restaurantController.acceptOrRejectRestaurantApplication
 );
+
 module.exports = Router;

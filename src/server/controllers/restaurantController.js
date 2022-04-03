@@ -195,3 +195,9 @@ exports.updateRestaurant = catchAsync(async (req, res) => {
     updatedRestaurant,
   });
 });
+
+exports.getFilteredRestaurantAndFoodItem = catchAsync(async (req, res) => {
+  res.status(200).json({
+    message: "yet to be implemented",
+  });
+});

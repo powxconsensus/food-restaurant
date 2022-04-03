@@ -52,9 +52,18 @@ class Header extends React.Component {
       this.setState({ isSearchedDropdownOpen: false });
     });
   }
-  handleChange = (event) => {
+  handleChange = async (event) => {
     const value = event.target.value;
     let tempRes = [];
+    try {
+      const response = await axios({
+        method: "GET",
+        url: `/fd/restaurant/searchItems?searchQuery=${value}`,
+      });
+      console.log(response);
+    } catch (err) {
+      alert(err.message);
+    }
     // this.props.restaurantWithItems.map((res) => {
     //   if (res.name.toLowerCase().includes(value.toLowerCase()))
     //     return tempRes.push(res);

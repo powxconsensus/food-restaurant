@@ -42,7 +42,7 @@ class CartItem extends React.Component {
               <div>
                 {item.quantity}
                 {" x"}
-                {item.price}
+                {item.pricePerQuantity}
                 {" Rs"}
               </div>
             </div>
@@ -64,7 +64,7 @@ class CartItem extends React.Component {
             />
           </div>
           <div className="item-price" style={{ fontSize: `${textFontSize}` }}>
-            {item.price * item.quantity} Rs
+            {item.pricePerQuantity * item.quantity} Rs
           </div>
         </div>
       </div>

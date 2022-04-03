@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { withRouter } from "../../withRouter";
@@ -12,7 +13,18 @@ class Cart extends React.Component {
   constructor() {
     super();
   }
-
+  async componentDidMount() {
+    try {
+      const response = await axios({
+        method: "GET",
+        url: "/fd/cart/",
+      });
+      const userCart = response.data.userCart.cartItems;
+      console.log(userCart);
+    } catch (err) {
+      alert(err.message);
+    }
+  }
   render() {
     if (!this.props.user) {
       if (!this.props.isSignInWindowOpen) this.props.toggleSignInWindow(true);
@@ -44,7 +56,8 @@ class Cart extends React.Component {
                   <div className="total-cost">
                     Total cost:{" "}
                     {this.props.cartItems.reduce(
-                      (prev, item) => prev + item.price * item.quantity,
+                      (prev, item) =>
+                        prev + item.pricePerQuantity * item.quantity,
                       0
                     )}{" "}
                     Rs
