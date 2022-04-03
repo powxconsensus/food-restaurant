@@ -1,0 +1,27 @@
+.food-item-list{
+    width: 100%;
+   
+    .food-item-list-header{
+        display: flex;
+        color: #fa5e5e;
+        justify-content:space-between;
+        align-items: center;
+        p{
+            font-size: 30px;            
+        }
+        .add-food-item-btn{
+            width: fit-content;
+            font-family: sans-serif;
+            font-size: 24px;
+            padding: 4px 15px 4px 15px;
+            border-radius: 1em;
+            background-color: antiquewhite;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            &:hover{
+                background-color: #f5c664;
+            }
+        }
+    }
+}

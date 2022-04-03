@@ -3,34 +3,32 @@
     background-color: #5d5367;
     min-height: 400px;
     min-height: 300px;
-
     color: #f5c664;
-
     font-weight: 800;
-    
     text-align: center;
     font-family: sans-serif;
-
     font-size: larger;
-
     padding: 1%;
+    p{
+        font-size: 36px;
+        margin: 0;
+        font-family: cursive;
+    }
     .filter-restaurant-by-status{
         display: flex;
+        background-color: red;
+        max-width: fit-content; 
 
-        padding: 2% 5% 2% 5%;
-        max-width: fit-content;
-        margin: 0 25%;
-
+        width: 100%;
         .filter-button{
             background-color: #f5c664;
             color: black;
-            padding: 1% 5em;
             display: inline-block;
-            border-radius: 1em;
-            margin: 0 2%;
+            border-radius: 4px;
+            margin: 0 5px;
+            padding: 4px;
             text-align: center;
             cursor: pointer;
-
             &:hover{
                 background-color: #fa5e5e;
                 color: white;
@@ -42,13 +40,13 @@
  
     .restaurant-application-button{
         background-color: green;
-        padding: 20px;
-        border-radius: 2em;
-        width: 20%;
+        padding: 8px;
+        border-radius: 1em;
+        width: 200px;
         text-align: center;
-        display: inline-block;
         cursor: pointer;
-
+        right: 0;
+        display: block;
         &:hover{
             background-color: rgb(55, 165, 55);
             font-weight: 1250;

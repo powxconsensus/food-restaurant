@@ -68,6 +68,23 @@ class Header extends React.Component {
     console.log(value);
     this.setState({ searchedRestaurant: tempRes });
   };
+  handleSignOut = async (event) => {
+    try {
+      const response = await axios({
+        method: "GET",
+        url: "/fd/users/signout",
+      });
+      store.dispatch({
+        type: "USER_LOGGED_OUT",
+      });
+      const pathName = this.props.location.pathname;
+      if (pathName === "/carts" || pathName === "/checkout")
+        this.props.navigate("/");
+      window.location.reload(false);
+    } catch (err) {
+      alert(err.message);
+    }
+  };
   render() {
     const { isSearchedDropdownOpen } = this.state;
     return (
@@ -93,14 +110,14 @@ class Header extends React.Component {
             </div>
           </div>
           <div className="right-block-navbar">
+            <div
+              className="navbar-item"
+              onClick={() => this.props.navigate("/manage-restaurant")}
+            >
+              {"Manage " + "Restaurant"}
+            </div>
             {!this.props.user ? (
               <>
-                <div
-                  className="navbar-item"
-                  onClick={() => this.props.navigate("/manage-restaurant")}
-                >
-                  {"Manage " + "Restaurant"}
-                </div>
                 <div
                   className="navbar-item"
                   onClick={() => this.props.toggleSignInWindow(true)}
@@ -158,18 +175,7 @@ class Header extends React.Component {
                     </div>
                   ) : null}
                 </div>
-                <div
-                  className="navbar-item"
-                  onClick={() => {
-                    store.dispatch({
-                      type: "USER_LOGGED_OUT",
-                    });
-                    const pathName = this.props.location.pathname;
-                    if (pathName === "/carts" || pathName === "/checkout")
-                      this.props.navigate("/");
-                    window.location.reload(false);
-                  }}
-                >
+                <div className="navbar-item" onClick={this.handleSignOut}>
                   Sign Out
                 </div>
               </>

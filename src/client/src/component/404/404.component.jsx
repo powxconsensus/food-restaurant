@@ -4,9 +4,6 @@ import { anime } from "react-anime";
 
 // It renders a svg image and acts as an error/search not found page.
 class FoutZeroFour extends React.Component {
-  constructor() {
-    super();
-  }
   componentDidMount() {
     anime({
       targets: ".row svg",

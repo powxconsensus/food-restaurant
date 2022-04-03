@@ -14,7 +14,7 @@ class ManageRestaurant extends React.Component {
     const { status } = this.state;
     return (
       <div className="manage-restaurant-page">
-        Manage your restaurants
+        <p>Manage your restaurants</p>
         <div className="filter-restaurant-by-status">
           <div
             className="filter-button"

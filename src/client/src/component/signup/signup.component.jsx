@@ -1,6 +1,7 @@
 import React from "react";
 import "./signup.style.scss";
 import { connect } from "react-redux";
+import axios from "axios";
 import {
   toggleSignUpWindow,
   toggleSignInWindow,
@@ -12,27 +13,58 @@ class SignUp extends React.Component {
     this.state = {
       email: "",
       password: "",
+      passwordConfirm: "",
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
     };
   }
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    const { email, password } = this.state;
-    if (!email || !password) return;
-    this.props.setUser({
-      email: email,
+    const {
+      email,
       password,
-    });
-    this.setState({ email: "", password: "" });
-    this.props.toggleSignInWindow(false);
+      firstName,
+      lastName,
+      passwordConfirm,
+      phoneNumber,
+    } = this.state;
+    if (
+      !email ||
+      !password ||
+      !firstName ||
+      !lastName ||
+      !passwordConfirm ||
+      !phoneNumber
+    )
+      return;
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "/fd/users/signUp",
+        data: {
+          email,
+          password,
+          firstName,
+          lastName,
+          passwordConfirm,
+          phoneNumber,
+        },
+      });
+      this.props.setUser(response.data.user);
+      this.props.toggleSignInWindow(false);
+    } catch (err) {
+      alert(err.message);
+    }
   };
   render() {
     return (
       <div
-        className="sign-in"
+        className="sign-up"
         onClick={(event) => {
           if (event.target.className === "sign-in")
             this.props.toggleSignUpWindow(false);
@@ -43,6 +75,25 @@ class SignUp extends React.Component {
             <div class="screen">
               <div class="screen__content">
                 <form class="login">
+                  <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input
+                      type="text"
+                      name="firstName"
+                      class="login__input"
+                      placeholder="first Name"
+                      value={this.state.firstName}
+                      onChange={this.onChange}
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      class="login__input"
+                      placeholder="last Name"
+                      value={this.state.lastName}
+                      onChange={this.onChange}
+                    />
+                  </div>
                   <div class="login__field">
                     <i class="login__icon fas fa-user"></i>
                     <input
@@ -62,6 +113,28 @@ class SignUp extends React.Component {
                       class="login__input"
                       placeholder="Password"
                       value={this.state.password}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input
+                      type="password"
+                      name="passwordConfirm"
+                      class="login__input"
+                      placeholder="confirm password"
+                      value={this.state.passwordConfirm}
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input
+                      type="text"
+                      name="phoneNumber"
+                      class="login__input"
+                      placeholder="Phone Number"
+                      value={this.state.phoneNumber}
                       onChange={this.onChange}
                     />
                   </div>

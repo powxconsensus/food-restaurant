@@ -8,45 +8,20 @@ class FoodItem extends React.Component {
       toExtend: false,
     };
   }
+  c;
   render() {
-    const { foodItemId } = this.props;
+    const { name } = this.props.foodItem;
     const { toExtend } = this.state;
     return (
-      <div>
-        <ul class="tilesWrap">
-          <li>
-            <h2>01</h2>
-            <h3>Dish 1</h3>
-            <p>
-              Description of dish goes here.
-            </p>
-            <button>Delete</button>
-          </li>
-          <li>
-            <h2>02</h2>
-            <h3>Dish 2</h3>
-            <p>
-              You can add an image of the dish but I think this already looks good
-            </p>
-            <button>Delete</button>
-          </li>
-          <li>
-            <h2>03</h2>
-            <h3>Dish 3</h3>
-            <p>
-              A few Menus do not have pictures
-            </p>
-            <button>Delete</button>
-          </li>
-          <li>
-            <h2>04</h2>
-            <h3>Dish 4</h3>
-            <p>
-              Sample text
-            </p>
-            <button>Delete</button>
-          </li>
-        </ul>
+      <div
+        className="food-item"
+        style={{
+          paddingBottom: `${toExtend ? "0px" : ""}`,
+        }}
+        onClick={() => this.setState({ toExtend: !toExtend })}
+      >
+        {name}
+        {toExtend ? <div className="extend-this-edit-option">Edit</div> : null}
       </div>
     );
   }

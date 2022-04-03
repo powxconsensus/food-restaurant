@@ -28,7 +28,7 @@ class Restaurant extends React.Component {
       method: "GET",
       url: `/fd/restaurant/${this.props.params.id}`,
     });
-    if (response.status == 200) {
+    if (response.status === 200) {
       this.setState({
         restaurant: response.data.restaurant,
         lastResId: this.props.params.id,
@@ -42,12 +42,12 @@ class Restaurant extends React.Component {
     this.setState({ lastResId: this.props.params.id });
   }
   async componentDidUpdate() {
-    if (this.state.lastResId != this.props.params.id) {
+    if (this.state.lastResId !== this.props.params.id) {
       const response = await axios({
         method: "GET",
         url: `/fd/restaurant/${this.props.params.id}`,
       });
-      if (response.status == 200) {
+      if (response.status === 200) {
         this.setState({
           restaurant: response.data.restaurant,
           lastResId: this.props.params.id,

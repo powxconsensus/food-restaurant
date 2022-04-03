@@ -1,38 +1,56 @@
 import React from "react";
+import axios from "axios";
 import "./manage-resturant-by-ID.style.scss";
-import FoodItem from "./FoodItem/foodItem.component";
+import FoodItemList from "./foodItemList/foodItemList.component";
+import { withRouter } from "../../withRouter";
 
 class ManageRestaurantById extends React.Component {
   constructor() {
     super();
     this.state = {
-      foodItemList: ["1"],
+      restaurant: {},
+      prevRestaurantId: "",
     };
   }
+  async componentDidMount() {
+    try {
+      const { restaurantId } = this.props.params;
+      const response = await axios({
+        method: "GET",
+        url: `/fd/restaurant/${restaurantId}`,
+      });
+      if (response.status == 200) {
+        this.setState({
+          prevRestaurantId: restaurantId,
+          restaurant: response.data.restaurant,
+        });
+      }
+    } catch (err) {
+      alert(err.message);
+    }
+  }
+  componentDidUpdate() {
+    if (this.state.restaurantId !== this.props.params.restaurantId) {
+    }
+  }
   render() {
-    const { foodItemList } = this.state;
+    const { restaurant } = this.state;
     return (
       <div className="manage-restaurant-ById">
-        <div className="restaurant-name">Restaurant name</div>
+        <div className="restaurant-name">{restaurant.name}</div>
 
         <div className="restraunt-info">
           <div className="imgdiv">Add image from backend here</div>
 
           <div className="describe-restaurant-data">
-            describe-restaurant-data [load from backend]
+            {restaurant.description}
           </div>
         </div>
 
-        <div className="food-item-list">
-          <div className="food-item-list-header">Menu</div>
-          {foodItemList.map((item, idx) => (
-            <FoodItem foodItemId={idx} />
-          ))}
-        </div>
-        <div className="add-food-item-btn">Add Food</div>
+        <FoodItemList restaurantId={this.state.prevRestaurantId} />
       </div>
     );
   }
 }
 
-export default ManageRestaurantById;
+export default withRouter(ManageRestaurantById);

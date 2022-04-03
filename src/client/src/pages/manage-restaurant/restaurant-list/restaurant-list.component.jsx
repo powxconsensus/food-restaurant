@@ -2,6 +2,7 @@ import React from "react";
 import "./restaurant-list.style.scss";
 import RestaurantListItem from "../restaurant-list-item/restaurant-list-item.component";
 import axios from "axios";
+import Loading from "../../../component/loading/loading.component";
 class RestaurantList extends React.Component {
   constructor() {
     super();
@@ -38,7 +39,13 @@ class RestaurantList extends React.Component {
 
   render() {
     const { filteredRestaurant, isLoading } = this.state;
-    if (isLoading) return <div className="loading-status">....loading</div>;
+    if (isLoading) return <Loading height="100px" width="100%" />;
+    if (!filteredRestaurant.length)
+      return (
+        <div className="no-search-found">
+          No restaurant is in {this.state.prevStatus} state
+        </div>
+      );
     return (
       <div className="restaurant-list">
         <div className="all-filtered-restaurant">
