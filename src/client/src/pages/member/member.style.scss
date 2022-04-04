@@ -1,21 +1,23 @@
 .member-page {
   width: calc(100% - 40px);
-  background: #2bc0e4;
-  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: #0f7514;
+  background: -webkit-linear-gradient(to top, #0f7514, #eaecc6);
+  background: linear-gradient(to top, #0f7514, #eaecc6);
   padding: 20px;
-  min-height: 400px;
+  min-height: 52%;
   height: auto;
   .heading {
     font-size: 30px;
-    font-family: cursive;
+    font-family: sans-serif;
     margin-bottom: -30px;
     text-align: center;
     margin-top: -30px;
     background: #e1e9eb;
-    border-radius: 10%;
-    background: -webkit-linear-gradient(to top, #efefea, #78888c);
-    background: linear-gradient(to top, #efefea, #2bc0e4);
+    border-radius: 1em;
+    background: -webkit-linear-gradient(to top, #0f7514, #eeea21);
+    background: linear-gradient(to top, #0f7514, #eeea21);
+    padding: .001em;
+    margin: .001em;
   }
   .members {
     display: flex;
@@ -24,5 +26,6 @@
     flex-wrap: wrap;
     padding: 10px;
     height: auto;
+    font-family: sans-serifs;
   }
 }

@@ -2,23 +2,25 @@
   width: 100%;
   height: auto;
   margin-top: -35px;
-  background: #2bc0e4;
-  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: #e5f0bc;
+  background: -webkit-linear-gradient(to top, #0f7514, #ebeb6e);
+  background: linear-gradient(to top, #0f7514, #ebeb6e);
   .heading {
     font-size: 28px;
     font-weight: 500;
-    font-family: cursive;
-    background: #2bc0e4;
-    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-    background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    font-family: sans-serif;
+    background: #0f7514;
+    background: -webkit-linear-gradient(to top, #eaecc6, #0f7514);
+    background: linear-gradient(to top, #eaecc6, #0f7514);
     text-align: center;
+    border-radius: 0.5em;
+    padding: 0.01em;
   }
 
   .content {
     font-size: 20px;
-    font-family: cursive;
-    font-weight: 400;
+    font: "Roboto";
+    font-weight: 800;
     display: flex;
     justify-content: center;
     align-items: center;

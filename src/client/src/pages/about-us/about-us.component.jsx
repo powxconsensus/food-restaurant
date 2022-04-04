@@ -12,17 +12,14 @@ const AboutUs = () => {
       <div className="about-us">
         <div className="about-us-heading">About Us</div>
         <div className="aboutus-content">
-          Living in a city ,we never have enough time to do all the things we
-          want to do. Food for foodies can change the way you move things
-          around,it enables you access restaurents in your city like never
-          before.This app connects you to remote restaurent in the city bring
-          them to you.
-          <br />
-          All you need to do is ,
-          <br />
-          Just select food from restaurent.
-          <br />
-          Whats happens next?Sit back,and let us worry about your task-at-hand.
+          We've all had a craving to eat that delicious masala dosa with the best chutney, or that
+          mouth watering panneer butter masala from that one place on the other side of the city
+          that's too far to go to.
+          <br /><br />
+          With food for foodies, we bring food that's miles away from your home to your fingertips!
+          <br /><br />
+          Why bother driving all the way to your favourite restaurant when you can have someone
+          bring the restaurant to you ?
         </div>
       </div>
     </>

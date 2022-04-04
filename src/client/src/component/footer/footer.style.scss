@@ -47,8 +47,8 @@ a {
 /*FOOTER*/
 footer {
   width: 100%;
-  background-color: #98b1c5;
-  color: rgb(31, 27, 27);
+  background-color: #0f7514;
+  color: rgb(235, 235, 235);
 }
 
 .top_header {
@@ -74,7 +74,7 @@ footer {
 }
 
 .top_header .fa {
-  color: #060605;
+  color: #9eca00;
   font-size: 35px;
 }
 
@@ -149,16 +149,16 @@ footer .bottom_content section {
   margin: 0rem 0 1rem 0;
 }
 .socials li{
-  margin: 0 10px;
+  margin: 10px;
 }
 .socials a{
   text-decoration: none;
-  color: rgb(14, 13, 13);
+  color: #db5a28;
   border: 1.1px solid white;
-  padding: 2.5px;
-
+  padding: 0.5em;
+  margin: 2em;
   border-radius: 50%;
-
+  size: 10em;
 }
 .socials a i{
   font-size: 1rem;

@@ -3,19 +3,24 @@
   height: auto;
   width: calc(100% - 40px);
   color: black;
-  background: #2bc0e4;
-  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: #db5a28;
+  background: -webkit-linear-gradient(to top, #db5a28, #eba03c);
+  background: linear-gradient(to top, #db5a28, #eba03c);
 
   .recommended-restaurant {
     font-size: 24px;
     font-family: monospace;
     margin: 8px;
-    font-weight: 500;
+    font-weight: 900;
     padding: 10px 20px 10px 20px;
-    background: #2bc0e4;
-    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-    background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    background: #eba03c;
+    background: -webkit-linear-gradient(to top, #db5a28, #c1e735);
+    background: linear-gradient(to top, #c1e735, #e5f0bc);
+    border-radius: 0.75em;
+    font-family: sans-serif;
+    color: #db5a28;
+    text-align: center;
+    text-shadow: #1e1f1b;
   }
   .list-out-items {
     display: flex;

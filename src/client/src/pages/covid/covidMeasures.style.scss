@@ -1,23 +1,25 @@
 .covid-container {
-  background: #2bc0e4;
-  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: #0f7514;
+  background: -webkit-linear-gradient(to top, #0f7514, #eaecc6);
+  background: linear-gradient(to top, #ce5323, #eaecc6);
   width: 100%;
   height: auto;
   margin-top: -35px;
   .heading {
     font-size: 28px;
     font-weight: 500;
-    font-family: cursive;
-    background: #2bc0e4;
-    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-    background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    font: "Roboto";
+    background: #0f7514;
+    background: -webkit-linear-gradient(to top, #0f7514, #eaecc6);
+    background: linear-gradient(to top, #0f7514, #eaecc6);
     text-align: center;
+    padding: 0.1em;
+    border-radius: .5em;
   }
 
   .content {
     font-size: 20px;
-    font-family: cursive;
+    font-family: sans-serif;
     font-weight: 400;
     display: flex;
     justify-content: center;

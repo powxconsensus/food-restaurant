@@ -3,11 +3,11 @@
   height: auto;
   margin-top: -35px;
   background: #c6d684;
-  background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-  background: linear-gradient(to top, #eaecc6, #2bc0e4);
+  background: -webkit-linear-gradient(to top, #0f7514, #f1ee2c);
+  background: linear-gradient(to top, #0f8815, #f1ee2c);
   .content {
-    font-size: 20px;
-    font-family: cursive;
+    font-size: 170%;
+    font-family: sans-serif;
     font-weight: 400;
     display: flex;
     justify-content: center;
@@ -16,12 +16,14 @@
     padding: 5% 10% 5% 10%;
   }
   .heading {
-    font-size: 28px;
-    font-weight: 500;
-    font-family: cursive;
-    background: #2bc0e4;
-    background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
-    background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    font-size: 500%;
+    font-weight: 1200;
+    font: 'Roboto';
+    background: #0f8815;
+    background: -webkit-linear-gradient(to top, #d68101, #f1ee2c);
+    background: linear-gradient(to top, #d68101, #f1ee2c);
     text-align: center;
+    padding: 0.2em;
+    border-radius: .5em;
   }
 }

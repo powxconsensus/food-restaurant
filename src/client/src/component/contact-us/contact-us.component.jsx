@@ -10,9 +10,9 @@ const ContactUs = () => {
         <h2>Contact US</h2>
       </div>
       <div className="content">
-        <p>You can reach us out through customer support: </p>
-        <br />
-        <a href="mailto:someone@example.com">customer.support@gmail.com</a>
+        <p>You can reach us out through customer support:
+          <a href="mailto:someone@example.com">customer.support@gmail.com</a>
+        </p>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const Delivery = () => {
   return (
     <div className="delivery-container">
       <div className="heading">
-        <h2>Delivery</h2>
+        <h2>D e l i v e r y</h2>
       </div>
       <div className="content">
         <ul>
