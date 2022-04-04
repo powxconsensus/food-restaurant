@@ -4,7 +4,7 @@ info:
   description: A simple API to do CRUD on Cart, Payment, FoodItem, Order, Resturant, Review, User resource.
 
 servers:
-  - url: http://localhost:3000/
+  - url: http://localhost:4000/
 
 tags:
   - name: Cart
@@ -509,7 +509,7 @@ paths:
       - api_key: []
 
 
-/fd/review/fooditem/{id}:
+  /fd/review/fooditem/{id}:
     get:
       tags:
       - "Review"
@@ -538,6 +538,128 @@ paths:
       security:
       - api_key: []
 
+
+
+components:
+  schemas:
+    Order:
+      type: "object"
+      required:
+        - id
+        - resturantId
+        - quantity
+        - status
+        - complete
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        resturantId:
+          type: "integer"
+          format: "int64"
+        quantity:
+          type: "integer"
+          format: "int32"
+        status:
+          type: "string"
+          description: "Order Status"
+          enum:
+          - "placed"
+          - "approved"
+          - "delivered"
+        complete:
+          type: "boolean"
+          default: false
+      xml:
+        name: "Order"
+    Category:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
+      xml:
+        name: "Category"
+
+        
+    User:
+      type: "object"
+      required:
+        - id
+        - username
+        - firstname
+        - lastname
+        - email
+        - password
+        - phone
+        - userStatus
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        username:
+          type: "string"
+        firstName:
+          type: "string"
+        lastName:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+        phone:
+          type: "string"
+        userStatus:
+          type: "integer"
+          format: "int32"
+          description: "User Status"
+      xml:
+        name: "User"
+    Tag:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
+      xml:
+        name: "Tag"
+
+    Resturant:
+      type: object
+      required:
+      - id
+      - resturantName
+      - contactNumber
+      - description
+      - address 
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        resturantName:
+          type: "string"
+        contactNumber:
+          type: "string"
+        description:
+          type: "string"
+        address:
+          type: "string"
+      xml:
+        name: "Resturant"
+    Tag:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
+      xml:
+        name: "Tag"
 
 
 
