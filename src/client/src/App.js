@@ -17,6 +17,7 @@ import Admin from "./pages/admin/admin.component";
 import ManageRestaurant from "./pages/manage-restaurant/manage-restaurant.component";
 import RestaurantApplication from "./pages/restaurant-application-form/restaurant-application-form.component";
 import ManageRestaurantById from "./pages/manage-resturant-by-ID/manage-resturant-by-ID.component";
+import RestaurantApplicationList from "./pages/res-application-admin/res-application-list.component";
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/covid" element={<CovidMeasures />} />
         <Route path="/admin" element={<Admin />} />
+        <Route
+          path="/admin/res-application"
+          element={<RestaurantApplicationList />}
+        />
         <Route path="/carts" element={<Cart />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/*" element={<FoutZeroFour />} />

@@ -4,6 +4,7 @@ import { BiEditAlt } from "react-icons/bi";
 
 import "./foodItem.style.scss";
 import axios from "axios";
+import { getFoodItemImageUrl } from "../../../utils";
 
 class FoodItem extends React.Component {
   constructor() {
@@ -24,7 +25,7 @@ class FoodItem extends React.Component {
     this.setState({ name, description, pricePerQuantity, quantity });
   }
   handleSubmit = async (event) => {
-    let { name, description, pricePerQuantity, quantity } = this.state;
+    let { name, description, pricePerQuantity, quantity, ima } = this.state;
     const { foodItem } = this.props;
     try {
       const { _id, restaurant } = foodItem;
@@ -74,7 +75,13 @@ class FoodItem extends React.Component {
       >
         <div className="two-component">
           <div className="food-item-img">
-            <img src="https://bit.ly/3KhrRXe" alt="food-image-goes here" />
+            <img
+              src={getFoodItemImageUrl(
+                this.props.foodItem.images[0],
+                this.props.foodItem.restaurant
+              )}
+              alt="food-image-goes here"
+            />
           </div>
           <div className="food-describe">{this.props.foodItem.name}</div>
           <div className="fooditem-operations">

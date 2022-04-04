@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { IoBanSharp } from "react-icons/io5";
+import { withRouter } from "./../../withRouter";
 import { CgSandClock } from "react-icons/cg";
 import FoutZeroFour from "../../component/404/404.component";
 import { toggleSignInWindow } from "../../redux/toggle/toggle.actions";
@@ -22,10 +23,10 @@ class Admin extends React.Component {
   }
   async componentDidMount() {
     try {
-      const response = await axios({
-        method: "GET",
-        url: "",
-      });
+      // const response = await axios({
+      //   method: "GET",
+      //   url: "",
+      // });
     } catch (err) {
       alert(err.message);
     }
@@ -39,7 +40,15 @@ class Admin extends React.Component {
       if (user.role === "admin")
         return (
           <div className="admin-page">
-            <div className="heading">Restaurant List</div>
+            <div className="heading">
+              <p>Restaurant List</p>
+              <div
+                className="res-appl"
+                onClick={() => this.props.navigate("/admin/res-application")}
+              >
+                Restaurant Applications
+              </div>
+            </div>
             {!restaurant || !restaurant.length ? (
               <div className="empty-res">No restaurant found</div>
             ) : (
@@ -118,4 +127,4 @@ const mapDispatchToProps = (dispatch) => {
     toggleSignInWindow: (payload) => dispatch(toggleSignInWindow(payload)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Admin));

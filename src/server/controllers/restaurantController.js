@@ -202,3 +202,20 @@ exports.getFilteredRestaurantAndFoodItem = catchAsync(async (req, res) => {
     message: "yet to be implemented",
   });
 });
+
+exports.getRestaurantToAcceptAndReject = catchAsync(async (req, res) => {
+  if (req.user.role !== "admin")
+    return res.status(401).json({
+      message: "you are not allowed to this tasks",
+      status: "fail",
+    });
+
+  const restaurants = await Restaurant.find({
+    applicationStatus: "processing",
+  });
+  res.status(200).json({
+    message: "here is list",
+    status: "OK",
+    restaurants,
+  });
+});

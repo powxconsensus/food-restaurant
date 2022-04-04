@@ -5,6 +5,7 @@ import { toggleSignInWindow } from "../../../redux/toggle/toggle.actions";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import "./order.style.scss";
 import axios from "axios";
+import { getFoodItemImageUrl } from "../../../utils";
 
 // it renders the food dishes from the db.json file which uses a mick json API and
 // it also caontains the AiFillStar function to get the restaurant star reviews
@@ -61,7 +62,7 @@ class Order extends React.Component {
           <>
             <div className="dish-item">
               <div className="dish-image">
-                <img src={order.image} alt="" />
+                <img src={getFoodItemImageUrl(order.images[0])} alt="" />
               </div>
               <div className="dish-details">
                 <div className="name-rating">

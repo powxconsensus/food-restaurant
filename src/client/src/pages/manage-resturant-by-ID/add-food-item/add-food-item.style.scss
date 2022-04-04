@@ -18,6 +18,32 @@
         background-color: rgb(150, 193, 204);
         border-radius: 20px;
         padding: 5px 25px;
+        .input-field{
+            padding: 6px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 28px;
+            input[type=text], select, textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical;
+              }
+              .name{
+                padding-top: 0px !important;
+            }
+            
+            
+              h2{
+                  text-align: center;
+                  font-size: 42px;
+            
+              }
+        
+        }
     }
     .submit-btn{
         width: 20%;
@@ -37,33 +63,9 @@
     }
 } 
 
-.input-field{
-    padding: 6px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 28px;
 
-}
 
-.name{
-    padding-top: 0px !important;
-}
 
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-  }
-
-  h2{
-      text-align: center;
-      font-size: 42px;
-
-  }
 
 
 //   input[type=submit] {

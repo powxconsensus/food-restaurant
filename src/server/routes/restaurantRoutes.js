@@ -6,7 +6,10 @@ const Router = express.Router();
 Router.route("/")
   .post(authController.protectAccess, restaurantController.addRestaurant)
   .get(restaurantController.getRecommendationRestaurant);
-
+Router.route("/admin").get(
+  authController.protectAccess,
+  restaurantController.getRestaurantToAcceptAndReject
+);
 Router.get(
   "/searchItems",
   restaurantController.getFilteredRestaurantAndFoodItem

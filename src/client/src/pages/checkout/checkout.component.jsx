@@ -209,7 +209,8 @@ class CheckOut extends React.Component {
                       <span>Total Amount: </span>
                       <span>
                         {this.props.cartItems.reduce(
-                          (prev, item) => prev + item.price * item.quantity,
+                          (prev, item) =>
+                            prev + item.pricePerQuantity * item.quantity,
                           0
                         )}
                         {" Rs"}

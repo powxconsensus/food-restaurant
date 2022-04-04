@@ -17,14 +17,33 @@
     font-weight: 600;
   }
   .heading {
-    font-size: 30px;
-    height: 35px;
+    height: 40px;
     width: 100%;
     padding: 5px;
     font-family: fantasy;
     background: #2bc0e4;
     background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
     background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    display: flex;
+    justify-content: space-between;
+    p{    
+        font-size: 30px;
+        margin-top: -1px;
+    }
+    .res-appl{
+      background-color: red;
+      padding: 8px 10px 8px 10px;
+      font-size: 18px;
+      justify-content: center;
+      align-items: center;
+      margin-top: -1px;
+      font-family: cursive;
+      cursor: pointer;
+      border-radius: 10px;
+      &:hover{
+        background-color: #2bc0e4;
+      }
+    }
   }
   .res-component {
     width: 100%;

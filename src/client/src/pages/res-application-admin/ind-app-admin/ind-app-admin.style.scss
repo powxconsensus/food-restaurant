@@ -1,0 +1,22 @@
+.ind-app{
+    height: 100px;
+    background-color: rebeccapurple;
+    width: calc(100% - 20px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    .status-btn{
+        display: flex;
+        .btn{
+            margin-right: 10px;
+            background-color: blue;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            &:hover{
+                background-color: rgb(110, 110, 192);
+            }
+        }
+    }
+}

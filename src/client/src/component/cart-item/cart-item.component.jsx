@@ -8,6 +8,7 @@ import {
   removeFromCart,
   clearItemFromCart,
 } from "../../redux/cart/cart.actions";
+import { getFoodItemImageUrl } from "../../utils";
 
 /*  This section contains cart-item section code
 
@@ -23,12 +24,18 @@ class CartItem extends React.Component {
     super();
   }
   render() {
-    const { item, itemHeight, itemImageWidth, textFontSize, isItCartPage } =
-      this.props;
+    const {
+      item,
+      itemHeight,
+      itemImageWidth,
+      textFontSize,
+      isItCartPage,
+      _id,
+    } = this.props;
     return (
       <div className="cart-item" style={{ height: `${itemHeight}` }}>
         <img
-          src={item.image}
+          src={getFoodItemImageUrl(item.images[0], _id)}
           alt=""
           className="item-image"
           style={{ width: `${itemImageWidth}` }}

@@ -17,6 +17,7 @@ import { setUser } from "../../redux/userReducer/user.actions";
 import { setRestaurantWithItem } from "../../redux/restaurant/restaurant.actions";
 import CartItem from "../cart-item/cart-item.component";
 import DisplayRating from "../rating/rating.component";
+import { getRestaurantImageUrl } from "../../utils";
 
 // Main webApp component file which renders all the things including the restaurants, restaurant
 //  rating, restaurant images, the things without the login and with the login
@@ -60,22 +61,22 @@ class Header extends React.Component {
         method: "GET",
         url: `/fd/restaurant/searchItems?searchQuery=${value}`,
       });
-      console.log(response);
+      // console.log(response);
     } catch (err) {
       alert(err.message);
     }
-    // this.props.restaurantWithItems.map((res) => {
-    //   if (res.name.toLowerCase().includes(value.toLowerCase()))
-    //     return tempRes.push(res);
-    //   for (let i = 0; i < res.dishes.length; i++) {
-    //     const dish = res.dishes[i];
-    //     if (dish.name.toLowerCase().includes(value.toLowerCase())) {
-    //       tempRes.push(res);
-    //       break;
-    //     }
-    //   }
-    // });
-    console.log(value);
+    this.props.restaurantWithItems.map((res) => {
+      if (res.name.toLowerCase().includes(value.toLowerCase()))
+        return tempRes.push(res);
+      // for (let i = 0; i < res.dishes.length; i++) {
+      //   const dish = res.dishes[i];
+      //   if (dish.name.toLowerCase().includes(value.toLowerCase())) {
+      //     tempRes.push(res);
+      //     break;
+      //   }
+      // }
+    });
+    // console.log(value);
     this.setState({ searchedRestaurant: tempRes });
   };
   handleSignOut = async (event) => {
@@ -169,9 +170,11 @@ class Header extends React.Component {
                         <div>Total:</div>{" "}
                         <div>
                           {this.props.cartItems.reduce(
-                            (prev, item) => prev + item.price * item.quantity,
+                            (prev, item) =>
+                              prev + item.pricePerQuantity * item.quantity,
                             0
                           )}
+                          {" Rs"}
                         </div>
                       </div>
                       <div
@@ -237,7 +240,7 @@ class Header extends React.Component {
                   {this.state.searchedRestaurant.map((res) => (
                     <>
                       <Link
-                        to={`/restaurant/${res.id}`}
+                        to={`/restaurant/${res._id}`}
                         onClick={() =>
                           this.setState({ isSearchedDropdownOpen: false })
                         }
@@ -247,7 +250,10 @@ class Header extends React.Component {
                           <div
                             className="res-image"
                             style={{
-                              backgroundImage: `url(${res.images[0]})`,
+                              backgroundImage: `url(${getRestaurantImageUrl(
+                                res.images[0],
+                                res._id
+                              )})`,
                               backgroundPosition: "center",
                               backgroundSize: "cover",
                               backgroundRepeat: "no-repeat",
