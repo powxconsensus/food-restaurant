@@ -74,6 +74,7 @@ class SignUp extends React.Component {
           <div class="container">
             <div class="screen">
               <div class="screen__content">
+                <h2>New User Signup</h2>
                 <form class="login">
                   <div class="login__field">
                     <i class="login__icon fas fa-lock"></i>
@@ -81,13 +82,13 @@ class SignUp extends React.Component {
                       type="text"
                       name="firstName"
                       class="login__input"
-                      placeholder="first Name"
+                      placeholder="First Name"
                       value={this.state.firstName}
                       onChange={this.onChange}
                     />
                     <input
                       type="text"
-                      name="lastName"
+                      name="Last Name"
                       class="login__input"
                       placeholder="last Name"
                       value={this.state.lastName}
@@ -122,7 +123,7 @@ class SignUp extends React.Component {
                       type="password"
                       name="passwordConfirm"
                       class="login__input"
-                      placeholder="confirm password"
+                      placeholder="Confirm password"
                       value={this.state.passwordConfirm}
                       onChange={this.onChange}
                     />

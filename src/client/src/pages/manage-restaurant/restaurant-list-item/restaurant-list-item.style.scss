@@ -25,9 +25,23 @@
     }
 
     .desc{
-        width: 50%;
+        background-color: aliceblue;
+        border: none;
+        color: black;
+        padding: 30px 200px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 1em;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    
         &:hover{
-            background-color: rgb(126, 170, 126);
+            background-color: #c7c473;
+            color: rgb(66, 62, 62);
+            font-size: medium;
+            font-weight: 800;
         }
     }
     .delete_button{

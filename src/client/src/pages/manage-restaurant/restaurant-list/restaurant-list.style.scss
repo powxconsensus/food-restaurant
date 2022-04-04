@@ -5,13 +5,14 @@
     .all-filtered-restaurant{
         width: 100%;
         height: auto;
+        border-radius: 10px;
         background-color:#5d5367;
     }
 }
 
 .no-search-found{
     min-height: 200px;
-    background-color: #f5c664;
+    background-color: #b5cea6;
     width: 100%;
     color: black;
     display: flex;

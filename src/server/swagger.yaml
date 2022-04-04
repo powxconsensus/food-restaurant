@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: Food For Fooodies
+  description: A simple API to do CRUD on Cart, Payment, FoodItem, Order, Resturant, Review, User resource.
+
+servers:
+  - url: http://localhost:3000/
+
+tags:
+  - name: Cart
+    description: API to manage the Cart details.
+  
+
+
+
+paths: 
+  /fd/cart/:
+    get:
+      summary: List of cart Items.
+      tags: [Cart]
+      responses:
+        "200":
+          description: "Elements stored in Cart."
+          content:
+            application/json:
+              schema:
+                # $ref: '#/components/schemas/Cart'
+    patch:
+      summary: Update element in cart.
+      tags: [Cart]
+      responses: 
+        "200":
+          description: "Modify elements stored in Cart."
+          content:
+            application/json:
+              schema:
+
+
+    delete:
+      summary: Remove the cart items that is not needed.
+      tags: [Cart]
+      responses: 
+        "200":
+          description: "Delete elements stored in Cart."
+          content:
+            application/json:
+              schema:
+
+  /fd/payment/order:
+    post:
+      summary: Finalize the order details.
+      tags: [PaymentDetail]
+      responses:
+        "200":
+          description: "Elements stored in Cart."
+          content:
+            application/json:
+              schema:
+
+
+
+  /fd/payment/verify:
+    post:
+      summary: Verifying the oder and payment. 
+      tags: [PaymentDetail]
+      responses: 
+        "200":
+          description: "Confirming if the payment was successful or not."
+          content: 
+            application/json:
+              schema:
+
+
+  /fd/users/signup:
+    post:
+      summary: Signing Up the user.
+
+
+
+  
+
+
+
+
+# components:
+#   schemas:
+#     Cart:
+#       type: object
+      

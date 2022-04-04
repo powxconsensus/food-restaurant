@@ -2,6 +2,10 @@ const express = require("express");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./swagger.yaml');
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const path = require("path");
@@ -67,7 +71,11 @@ app.use("/fd/cart/", cartRouter);
 app.use("/fd/order/", orderRouter);
 app.use("/fd/payment/", paymentRouter);
 //::PaymentReceipt
-
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this Server`, 404));
 });

@@ -15,8 +15,8 @@
   overflow-y:hidden;
   overflow-x:hidden;
   .sign-in-input-box {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 450px;
     border-radius: 20px;
     .container {
       display: flex;
@@ -27,9 +27,10 @@
     }
     .signup-btn {
       display: flex;
-      margin-top: 30px;
+      margin-top: 50px;
       font-size: 18px;
       font-family: cursive;
+      color: rgb(52, 242, 10);
       h4 {
         margin-top: -1px;
         cursor: pointer;
@@ -105,13 +106,13 @@
     }
 
     .login {
-      width: 320px;
-      padding: 30px;
-      padding-top: 100px;
+      width: 360px;
+      padding: 50px;
+      padding-top: 50px;
     }
 
     .login__field {
-      padding: 20px 0px;
+      padding: 10px 0px;
       position: relative;
     }
 
@@ -140,17 +141,17 @@
     }
 
     .login__submit {
-      background: #fff;
-      font-size: 14px;
+      background: rgb(191, 234, 236);
+      font-size: 16px;
       margin-top: 30px;
       padding: 16px 20px;
       border-radius: 26px;
-      border: 1px solid #d4d3e8;
+      border: 1px solid #bab8df;
       text-transform: uppercase;
       font-weight: 700;
       display: flex;
       align-items: center;
-      width: 100%;
+      width: 50%;
       color: #4c489d;
       box-shadow: 0px 2px 2px #5c5696;
       cursor: pointer;
@@ -195,4 +196,9 @@
       transform: scale(1.5);
     }
   }
+}
+
+
+.create-account{
+  color: white;
 }

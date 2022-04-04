@@ -57,6 +57,7 @@ class SignIn extends React.Component {
           <div class="container">
             <div class="screen">
               <div class="screen__content">
+                <h2>User Login</h2>
                 <div class="login">
                   <div class="login__field">
                     <i class="login__icon fas fa-user"></i>
@@ -89,7 +90,7 @@ class SignIn extends React.Component {
                   </button>
                   <div className="signup-btn">
                     New to Here?{" "}
-                    <h4 onClick={() => this.props.toggleSignUpWindow(true)}>
+                    <h4 className="create-account" onClick={() => this.props.toggleSignUpWindow(true)}>
                       Create account
                     </h4>
                   </div>

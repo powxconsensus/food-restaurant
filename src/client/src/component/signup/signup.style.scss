@@ -26,7 +26,7 @@
       }
       .signup-btn {
         display: flex;
-        margin-top: 30px;
+        margin-top: 20px;
         font-size: 18px;
         font-family: cursive;
         h4 {
@@ -110,7 +110,7 @@
       }
   
       .login__field {
-        padding: 15px 0px;
+        padding: 5px 0px;
         display: flex;
         position: relative;
       }
@@ -130,6 +130,7 @@
         font-weight: 700;
         width: 75%;
         transition: 0.2s;
+
       }
   
       .login__input:active,
@@ -197,3 +198,8 @@
     }
   }
   
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:black;
+    opacity: 1; /* Firefox */
+  }
