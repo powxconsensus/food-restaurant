@@ -36,7 +36,10 @@
     "razorpay": "^2.8.1",
     "rotating-file-stream": "^3.0.3",
     "sharp": "^0.30.3",
+    "swagger-jsdoc": "^6.2.0",
+    "swagger-ui-express": "^4.3.0",
     "validator": "^13.7.0",
-    "xss-clean": "^0.1.1"
+    "xss-clean": "^0.1.1",
+    "yamljs": "^0.3.0"
   }
 }

@@ -14,6 +14,8 @@ class FoodItem extends React.Component {
       description: "",
       pricePerQuantity: "",
       quantity: "",
+      imageValue: "",
+      image: {},
     };
   }
   componentDidMount() {
@@ -128,6 +130,20 @@ class FoodItem extends React.Component {
                   name="quantity"
                   value={this.state.quantity}
                   onChange={this.handleOnChange}
+                />
+              </div>
+              <div className="fi-input-field">
+                <label htmlFor="image">Add Food Image: </label>
+                <input
+                  type="file"
+                  name="image"
+                  value={this.state.imageValue}
+                  onChange={(event) => {
+                    this.setState({
+                      image: event.target.files[0],
+                      imageValue: event.target.value,
+                    });
+                  }}
                 />
               </div>
 

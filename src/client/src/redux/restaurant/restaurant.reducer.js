@@ -19,7 +19,7 @@ const RestaurantReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         restaurantWithItems: state.restaurantWithItems.map((res) => {
-          if (res.id === action.payload.restaurant_id) {
+          if (res._id === action.payload.restaurant_id) {
             return {
               ...res,
               review: [...res.review, action.payload],
@@ -32,7 +32,7 @@ const RestaurantReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         restaurantWithItems: state.restaurantWithItems.map((res) => {
-          if (res.id === action.payload.id) {
+          if (res._id === action.payload.id) {
             return {
               ...res,
               isActive: action.payload.isActive,
@@ -45,7 +45,7 @@ const RestaurantReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         restaurantWithItems: state.restaurantWithItems.filter(
-          (res) => res.id !== action.payload.id
+          (res) => res._id !== action.payload._id
         ),
       };
 

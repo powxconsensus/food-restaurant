@@ -9,13 +9,26 @@ import {
   toggleAccountActivity,
 } from "../../redux/restaurant/restaurant.actions";
 import "./admin.style.scss";
+import axios from "axios";
 
 // admin controls, remove / time-out a restaurant
-
 
 class Admin extends React.Component {
   constructor() {
     super();
+    this.state = {
+      restaurants: [],
+    };
+  }
+  async componentDidMount() {
+    try {
+      const response = await axios({
+        method: "GET",
+        url: "",
+      });
+    } catch (err) {
+      alert(err.message);
+    }
   }
   render() {
     const { restaurant, user } = this.props;
@@ -23,7 +36,7 @@ class Admin extends React.Component {
       if (!this.props.isSignInWindowOpen) this.props.toggleSignInWindow(true);
       return <div className="blur-background"></div>;
     } else {
-      if (user.email === "mpriyanshu263@gmail.com")
+      if (user.role === "admin")
         return (
           <div className="admin-page">
             <div className="heading">Restaurant List</div>
@@ -43,7 +56,7 @@ class Admin extends React.Component {
                   ></div>
                   <div className="res-details">
                     <div className="name common">{res.name}</div>
-                    <div className="owner-name common ">{res.owner_name}</div>
+                    <div className="owner-name common ">{res.owner}</div>
                     <div className="owner-contact-number common">
                       {res.contact_number}
                     </div>
@@ -57,7 +70,7 @@ class Admin extends React.Component {
                       onClick={() =>
                         this.props.toggleAccountActivity({
                           isActive: !res.isActive,
-                          id: res.id,
+                          id: res._id,
                         })
                       }
                       title={
@@ -72,7 +85,7 @@ class Admin extends React.Component {
                       onClick={() =>
                         this.props.banRestaurant({
                           isBan: !res.isBan,
-                          id: res.id,
+                          id: res._id,
                         })
                       }
                       title="ban restaurant"

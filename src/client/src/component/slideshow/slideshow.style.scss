@@ -1,0 +1,33 @@
+.slide-show-box{
+    width: 100%;
+    height: 100%;
+    .pic-wrapper{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .current{
+            right: 0;
+            position: absolute;
+            .move{
+                left: 0;
+                transition: all .5s ease;
+            }
+        }
+        .next{
+            position: absolute;
+            right: 0;
+            z-index: 0;
+            .move{
+                transition: all .5s ease;
+            }
+        }
+        .pic {
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+          }
+    }
+}

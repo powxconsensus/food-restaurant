@@ -146,15 +146,15 @@ exports.resizeRestaurantImage = catchAsync(async (req, res, next) => {
         req.images = [...req.images, imageName];
         let dir = `public/restaurant/${req.restaurant._id}`;
         if (!fs.existsSync(dir)) await mkDir(dir);
-
+        dir = `public/restaurant/${req.restaurant._id}/images`;
+        if (!fs.existsSync(dir)) await mkDir(dir);
         await sharp(image.buffer)
           .resize(500, 500)
           .toFormat("jpeg")
           .jpeg({ quality: 90 })
-          .toFile(`${dir}/images/${imageName}`);
+          .toFile(`${dir}/${imageName}`);
       })
     );
-    console.log(req.images);
     return next();
   }
 
