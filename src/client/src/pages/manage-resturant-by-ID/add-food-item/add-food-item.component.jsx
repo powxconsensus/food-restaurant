@@ -17,7 +17,7 @@ class AddFoodItem extends React.Component {
   handleSubmit = async (event) => {
     const { name, pricePerQuantity, description, quantity } = this.state;
     if (!name || !pricePerQuantity || !description || !quantity)
-      return alert("enter all information");
+      return alert("Enter all information");
     try {
       const response = await axios({
         method: "POST",
@@ -49,14 +49,14 @@ class AddFoodItem extends React.Component {
         }}
       >
         <div className="add-food-item-box">
-          <p>Add Food Item</p>
+          <h2>Add Food Item</h2>
 
-          <div className="input-field">
-            <label htmlFor="name">Name</label>
+          <div className="input-field name">
+            <label htmlFor="name">Name: </label>
             <input type="text" name="name" onChange={this.handleOnChange} />
           </div>
           <div className="input-field">
-            <label htmlFor="description">description</label>
+            <label htmlFor="description">Description: </label>
             <input
               type="text"
               name="description"
@@ -64,7 +64,7 @@ class AddFoodItem extends React.Component {
             />
           </div>
           <div className="input-field">
-            <label htmlFor="pricePerQuantity">pricePerQuantity</label>
+            <label htmlFor="pricePerQuantity">Price Per Quantity: </label>
             <input
               type="text"
               name="pricePerQuantity"
@@ -72,7 +72,7 @@ class AddFoodItem extends React.Component {
             />
           </div>
           <div className="input-field">
-            <label htmlFor="quantity">quantity</label>
+            <label htmlFor="quantity">Quantity: </label>
             <input type="text" name="quantity" onChange={this.handleOnChange} />
           </div>
           <div className="submit-btn" onClick={this.handleSubmit}>

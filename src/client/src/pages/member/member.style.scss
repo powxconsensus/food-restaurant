@@ -7,10 +7,15 @@
   min-height: 400px;
   height: auto;
   .heading {
-    font-size: 24px;
+    font-size: 30px;
     font-family: cursive;
     margin-bottom: -30px;
+    text-align: center;
     margin-top: -30px;
+    background: #e1e9eb;
+    border-radius: 10%;
+    background: -webkit-linear-gradient(to top, #efefea, #78888c);
+    background: linear-gradient(to top, #efefea, #2bc0e4);
   }
   .members {
     display: flex;

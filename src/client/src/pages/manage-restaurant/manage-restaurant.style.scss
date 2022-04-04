@@ -1,14 +1,14 @@
 .manage-restaurant-page{
-    width: 98%;
-    background-color: #5d5367;
+    width: 76%;
+    background-color: #6f5589;
     min-height: 400px;
     min-height: 300px;
-    color: #f5c664;
+    color: #dcd0b7;
     font-weight: 800;
     text-align: center;
     font-family: sans-serif;
     font-size: larger;
-    padding: 1%;
+    padding: 1% 13%;
     p{
         font-size: 36px;
         margin: 0;
@@ -30,7 +30,7 @@
             text-align: center;
             cursor: pointer;
             &:hover{
-                background-color: #fa5e5e;
+                background-color: #caa5a5;
                 color: white;
                 font-weight: 900;
             }
@@ -39,7 +39,7 @@
     }
  
     .restaurant-application-button{
-        background-color: green;
+        background-color: rgb(113, 118, 195);
         padding: 8px;
         border-radius: 1em;
         width: 200px;

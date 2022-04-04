@@ -7,12 +7,14 @@
   background: -webkit-linear-gradient(to top, #eaecc6, #2bc0e4);
   background: linear-gradient(to top, #eaecc6, #2bc0e4);
   .about-us-heading {
-    font-size: 28px;
+    font-size: 48px;
+    text-align: center;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;;
-    background: #2bc0e4;
-    background: -webkit-linear-gradient(to top, #eaecc6, #78888c);
-    background: linear-gradient(to top, #eaecc6, #2bc0e4);
+    background: #e1e9eb;
+    border-radius: 10%;
+    background: -webkit-linear-gradient(to top, #efefea, #78888c);
+    background: linear-gradient(to top, #efefea, #2bc0e4);
   }
   .aboutus-content {
     font-size: 20px;

@@ -11,6 +11,8 @@
         margin: 1% auto;
         justify-content: space-between;
         color: #f5c664;
+        border: black solid;
+        border-radius: 20px;
     }
    
 
@@ -32,12 +34,17 @@
         }
 
         .describe-restaurant-data{
-            border: #f5c664;
+            border: #030303;
             border-radius: 1em;
-            background-color: #f5c664;
-            text-align: center;
+            background-color: #e8e3d8;
+            padding: 20px;
         }
     }
+}
 
-   
+.res-desc{
+    padding: 5px;
+    border-radius: 2px;
+    border: #030303 solid;
+    margin: 5px;
 }

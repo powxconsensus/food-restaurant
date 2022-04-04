@@ -45,10 +45,10 @@ class ManageRestaurantById extends React.Component {
             <img src="https://bit.ly/3KhrRXe" alt="" />
           </div>
           <div className="describe-restaurant-data">
-            <div className="res-desc">{description}</div>
-            <div className="res-desc">{contactNo}</div>
-            <div className="res-desc">{openCloseStatus ? "Open" : "Close"}</div>
-            <div className="res-desc">{address}</div>
+            <div className="res-desc"><b>Description: </b>{description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam amet quae soluta architecto voluptates.</div>
+            <div className="res-desc"><b>Contact Number: </b>{contactNo}</div>
+            <div className="res-desc"><b>Open/Close: </b>{openCloseStatus ? "Open" : "Close"}</div>
+            <div className="res-desc"><b>Address: </b>{address}</div>
           </div>
         </div>
 

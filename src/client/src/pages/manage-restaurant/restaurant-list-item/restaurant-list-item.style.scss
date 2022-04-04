@@ -17,6 +17,7 @@
         margin-right: 2em;
         width: 20%;
         height: 100%;
+        color: black !important;
         img{
             height: 100%;
             width: 100%;
@@ -26,7 +27,7 @@
     .desc{
         width: 50%;
         &:hover{
-            background-color: green;
+            background-color: rgb(126, 170, 126);
         }
     }
     .delete_button{
