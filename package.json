@@ -4,7 +4,7 @@
   "description": "backend and frontend ",
   "main": "index.js",
   "scripts": {
-    "install": "npm install && cd src/server && npm install && cd ../client && npm i",
+    "set": "npm install && cd src/server && npm install && cd ../client && npm i",
     "start": "concurrently \"cd src/server && nodemon server.js\" \"cd src/client && npm start\""
   },
   "repository": {
