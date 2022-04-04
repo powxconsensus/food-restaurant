@@ -4,7 +4,7 @@ info:
   description: A simple API to do CRUD on Cart, Payment, FoodItem, Order, Resturant, Review, User resource.
 
 servers:
-  - url: http://localhost:3000/
+  - url: http://localhost:4000/
 
 tags:
   - name: Cart
@@ -73,12 +73,593 @@ paths:
 
   /fd/users/signup:
     post:
-      summary: Signing Up the user.
+      tags:
+      - "user"
+      summary: "Create user"
+      description: "This can only be done by the logged in user."
+      operationId: "createUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          # $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
 
 
+  /fd/users/signin:
+    get:
+      tags:
+      - "user"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "The user name for login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "The password for login in clear text"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+        "400":
+          description: "Invalid username/password supplied"
 
+  /fd/users/signout:
+    get:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user session"
+      description: ""
+      operationId: "logoutUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
   
+  /fd/users/:
+    get:
+      tags:
+      - "user"
+      summary: "Get all user who are active at the given time"
+      description: ""
+      operationId: "All User"
 
+
+  /fd/users/deleteMe:
+    delete:
+      tags:
+      - "user"
+      summary: "Delete the specific user that is currently logged in."
+      description: "The specific user can delete his/her account."
+      operationId: "Delete User"          
+      responses:
+        default:
+          description: "successful operation"
+
+
+  /fd/users/updateMe:
+    patch:
+      tags:
+      - "user"
+      summary: "User can update his/her account based on their preferences like password update, profile update etc."
+      description: "User can update thier account data like profile pic, username, email id, password etc."
+      operationId: "User Update"          
+      responses:
+        default:
+          description: "successful operation"
+
+  /fd/restaurant:
+    post:
+      tags:
+      - "Resturant"
+      summary: "Add a new resturant and display all the previous resturant that belongs to that specific person."
+      description: "This can be done by some user user who are registerd for adding thier resturant to our wensite and that form wil be reviewed by admin and then it is make sure whether that resturant will get added or not."
+      operationId: "Add new Resturant."
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          # $ref: "#/definitions/Resturant"
+      responses:
+        default:
+          description: "successful operation"
+  /fd/restaurant/{id}:
+    patch:
+      tags:
+      - "Resturant"
+      summary: "Add a new resturant and display all the previous resturant that belongs to that specific person."
+      description: "This can be done by some user user who are registerd for adding thier resturant to our wensite and that form wil be reviewed by admin and then it is make sure whether that resturant will get added or not."
+      operationId: "Add new Resturant."
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          # $ref: "#/definitions/Resturant"
+      responses:
+        default:
+          description: "successful operation"
+
+  fd/restaurant/{id}:
+    get:
+      tags:
+      - "Resturant"
+      summary: "Find Resturant by ID"
+      description: "Returns a single resturant"
+      operationId: "getResturantById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "resturantId"
+        in: "path"
+        description: "ID of resturant to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: "#/definitions/Pet"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+      security:
+      - api_key: []
+
+
+    post:
+      tags:
+      - "Resturant"
+      summary: "Updates a pet in the store with form data"
+      description: ""
+      operationId: "updateResturantWithForm"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "resturantId"
+        in: "path"
+        description: "ID of pet that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "name"
+        in: "formData"
+        description: "Updated name of the pet"
+        required: false
+        type: "string"
+      - name: "status"
+        in: "formData"
+        description: "Updated status of the pet"
+        required: false
+        type: "string"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - petstore_auth:
+        - "write:resturants"
+        - "read:resturants"
+    
+    delete:
+      tags:
+      - "Resturant"
+      summary: "Deletes a resturant"
+      description: ""
+      operationId: "deleteResturant"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "resturantId"
+        in: "path"
+        description: "Resturant id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+
+  /fd/fooditem/:
+    get:
+      summary: List of cart Items.
+      tags: [Food Item]
+      responses:
+        "200":
+          description: "Elements stored in Cart."
+          content:
+            application/json:
+              schema:
+                # $ref: '#/components/schemas/FoodItem'
+  /fd/foofitem/{id}:
+    patch:
+      tags:
+      - "Food Item"
+      summary: "Update the food item "
+      description: "Edit food item quantity prices etc."
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          # $ref: "#/definitions/Resturant"
+      responses:
+        default:
+          description: "successful operation"
+
+    delete:
+      tags:
+      - "Food Item"
+      summary: "Deletes a Food Item"
+      description: ""
+      operationId: "deleteFood"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "FoodId"
+        in: "path"
+        description: "Food id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Food not found"
+
+  /fd/foodItem/restaurant/{id}:
+    delete:
+      tags:
+      - "Food Item"
+      summary: "Deletes a Food Item from the specified resturant"
+      description: ""
+      operationId: "deleteFoodFromResturant"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "ResturantId"
+        in: "path"
+        description: "Resturant id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Resturant not found"
+
+  /fd/foodItem/{id}:
+    get:
+      tags:
+      - "Food Item"
+      summary: "Find Food by ID"
+      description: "Returns a single Food Item"
+      operationId: "getFoodById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "foodId"
+        in: "path"
+        description: "ID of Food to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: "#/definitions/Pet"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+      security:
+      - api_key: []
+
+  /fd/review/:
+    post:
+      tags:
+      - "Review"
+      summary: "Add review to hotels and form"
+      description: ""
+      operationId: "Addd Review"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "reviewId"
+        in: "path"
+        description: "Add Review to hotels and food."
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - petstore_auth:
+        - "write:resturants"
+        - "read:resturants"
+
+
+  /fd/review/{id}:
+    delete:
+      tags:
+      - "Review"
+      summary: "Deletes a Review"
+      description: "Delete a review from the specific resturant or food."
+      operationId: "deleteReviewFromResturant"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "ReviewId"
+        in: "path"
+        description: "Review id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Review not found"
+
+  /fd/review/restaurant/{id}:
+    get:
+      tags:
+      - "Review"
+      summary: "Find all Reviews by  the ID of a particular resturant."
+      description: "Returns all review of a given resturant"
+      operationId: "getReviewByResturantId"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "resturantId"
+        in: "path"
+        description: "Resturant ID to return all reviews"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: "#/definitions/Pet"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Resturant not found"
+      security:
+      - api_key: []
+
+
+  /fd/review/fooditem/{id}:
+    get:
+      tags:
+      - "Review"
+      summary: "Find all Reviews by  the ID of a particular Food."
+      description: "Returns all review of a given Food"
+      operationId: "getReviewByFoodId"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "resturantId"
+        in: "path"
+        description: "Food ID to return all reviews"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: "#/definitions/Pet"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Food not found"
+      security:
+      - api_key: []
+
+
+
+components:
+  schemas:
+    Order:
+      type: "object"
+      required:
+        - id
+        - resturantId
+        - quantity
+        - status
+        - complete
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        resturantId:
+          type: "integer"
+          format: "int64"
+        quantity:
+          type: "integer"
+          format: "int32"
+        status:
+          type: "string"
+          description: "Order Status"
+          enum:
+          - "placed"
+          - "approved"
+          - "delivered"
+        complete:
+          type: "boolean"
+          default: false
+      xml:
+        name: "Order"
+    Category:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
+      xml:
+        name: "Category"
+
+        
+    User:
+      type: "object"
+      required:
+        - id
+        - username
+        - firstname
+        - lastname
+        - email
+        - password
+        - phone
+        - userStatus
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        username:
+          type: "string"
+        firstName:
+          type: "string"
+        lastName:
+          type: "string"
+        email:
+          type: "string"
+        password:
+          type: "string"
+        phone:
+          type: "string"
+        userStatus:
+          type: "integer"
+          format: "int32"
+          description: "User Status"
+      xml:
+        name: "User"
+    Tag:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
+      xml:
+        name: "Tag"
+
+    Resturant:
+      type: object
+      required:
+      - id
+      - resturantName
+      - contactNumber
+      - description
+      - address 
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        resturantName:
+          type: "string"
+        contactNumber:
+          type: "string"
+        description:
+          type: "string"
+        address:
+          type: "string"
+      xml:
+        name: "Resturant"
+    Tag:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
+      xml:
+        name: "Tag"
 
 
 
