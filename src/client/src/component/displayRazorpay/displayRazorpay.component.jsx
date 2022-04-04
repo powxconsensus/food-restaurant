@@ -24,12 +24,13 @@ const displayRazorpay = async ({
   navigate,
   clearCart,
 }) => {
+  console.log(totalAmount);
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
   if (!res) {
     alert("Razorpay SDK failed to load. Are you online?");
     return;
   }
-  const data = await fetch("http://localhost:1337/razorpay", {
+  const data = await fetch("/fd/payment/razorpay", {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -44,7 +45,7 @@ const displayRazorpay = async ({
     order_id: data.id,
     name: "Food ordering",
     description: "Thank you for ordering!",
-    image: "http://localhost:1337/logo.svg",
+    image: "",
     handler: function (response) {
       clearCart();
       setTimeout(() => {

@@ -13,7 +13,6 @@ Router.route("/").post(
 
 Router.get(
   "/restaurant/:restaurantId",
-  authController.protectAccess,
   foodItemController.getFoodItemByRestaurantId
 );
 

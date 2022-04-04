@@ -89,44 +89,45 @@
       }
     }
   }
-
+  position: relative;
   .res-images {
     height: auto;
     width: 50%;
     display: flex;
     flex-wrap: wrap;
+    .extra-res-images{
+      width: calc(50% - 20px);
+      right: 0;
+      height: 380px;
+      position: absolute;
+      display: flex;
+      flex-wrap: wrap;
+      
+      .res-image-item1 {
+        height: 50%;
+        width: 60%;
+      }
+      .res-image-item2 {
+        height: 50%;
+        width: 40%;
+    
+      }
+      .res-image-item3 {
+        height: 50%;
+        width: 40%;
+    
+      }
+      .res-image-item4 {
+        height: 50%;
+        width: 60%;
+   
+      }
+    }
     .res-image-item0 {
       height: 300px;
       width: 100%;
     }
-    .res-image-item1 {
-      height: 200px;
-      width: 350px;
-      position: absolute;
-      top: 140px;
-      left:800px;
-    }
-    .res-image-item2 {
-      height: 200px;
-      width: 350px;
-      position: absolute;
-      top: 140px;
-      left:1150px;
-    }
-    .res-image-item3 {
-      height: 200px;
-      width: 350px;
-      position: absolute;
-      top: 340px;
-      left:800px;
-    }
-    .res-image-item4 {
-      height: 200px;
-      width: 350px;
-      position: absolute;
-      top: 340px;
-      left:1150px;
-    }
+   
   }
 }
 .restaurant-not-found {

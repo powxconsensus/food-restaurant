@@ -124,7 +124,11 @@ class Header extends React.Component {
           <div className="right-block-navbar">
             <div
               className="navbar-item"
-              onClick={() => this.props.navigate("/manage-restaurant")}
+              onClick={() => {
+                if (!this.props.user)
+                  return this.props.toggleSignInWindow(true);
+                this.props.navigate("/manage-restaurant");
+              }}
             >
               {"Manage " + "Restaurant"}
             </div>

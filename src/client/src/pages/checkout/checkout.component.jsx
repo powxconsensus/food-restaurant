@@ -121,7 +121,7 @@ class CheckOut extends React.Component {
     displayRazorpay({
       user: this.props.user,
       totalAmount: this.props.cartItems.reduce(
-        (prev, item) => prev + item.price * item.quantity,
+        (prev, item) => prev + item.pricePerQuantity * item.quantity,
         0
       ),
       cartItems: this.props.cartItems,

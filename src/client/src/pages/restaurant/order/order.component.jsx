@@ -38,14 +38,14 @@ class Order extends React.Component {
         quantity: 1,
       });
       try {
-        const response = await axios({
-          method: "PATCH",
-          url: "/fd/cart",
-          data: {
-            foodItemId: order._id,
-            quantity: 1,
-          },
-        });
+        // const response = await axios({
+        //   method: "PATCH",
+        //   url: "/fd/cart",
+        //   data: {
+        //     foodItemId: order._id,
+        //     quantity: 1,
+        //   },
+        // });
 
         this.props.addToCart(order);
       } catch (err) {

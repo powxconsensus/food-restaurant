@@ -1,5 +1,4 @@
 const Payment = require("../models/paymentDetailModel");
-
 const Razorpay = require("razorpay");
 const PaymentDetail = require("../models/paymentDetailModel");
 const { nanoid } = require("nanoid");
@@ -11,48 +10,71 @@ const razorPayInstance = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-exports.createPayment = async (req, res, next) => {
-  params = {
-    amount: req.body.amount * 100,
-    currency: "INR",
+// exports.createPayment = async (req, res, next) => {
+//   params = {
+//     amount: req.body.amount * 100,
+//     currency: "INR",
+//     receipt: nanoid(),
+//     payment_capture: "1",
+//   };
+//   razorPayInstance.orders
+//     .create(params)
+//     .then(async (response) => {
+//       const razorpayKeyId = process.env.RAZORPAY_KEY_ID;
+//       // Save orderId and other payment details
+//       // const paymentDetail = new PaymentDetail({
+//       //   user: req.user.id,
+//       //   orderId: response.id,
+//       //   receiptId: response.receipt,
+//       //   amountRecieved: response.amount,
+//       //   currency: response.currency,
+//       //   createdAt: response.created_at,
+//       //   status: response.status,
+//       // });
+//       try {
+//         // Render Order Confirmation page if saved succesfully
+//         // await paymentDetail.save();
+//         res.status(200).json({
+//           message: "Payment Order saved succesfully",
+//           status: "OK",
+//           title: "Confirm Order",
+//           razorpayKeyId: razorpayKeyId,
+//           // paymentDetail: paymentDetail,
+//         });
+//       } catch (err) {
+//         // Throw err if failed to save
+//         if (err) throw err;
+//       }
+//     })
+//     .catch((err) => {
+//       // Throw err if failed to create order
+//       if (err) throw err;
+//     });
+// };
+exports.createPayment = async (req, res) => {
+  const payment_capture = 1;
+  const amount = req.body.amount;
+  const currency = "INR";
+  console.log(req);
+  const options = {
+    amount: amount * 100,
+    currency,
     receipt: nanoid(),
-    payment_capture: "1",
+    payment_capture,
   };
-  razorPayInstance.orders
-    .create(params)
-    .then(async (response) => {
-      const razorpayKeyId = process.env.RAZORPAY_KEY_ID;
-      // Save orderId and other payment details
-      const paymentDetail = new PaymentDetail({
-        user: req.user.id,
-        orderId: response.id,
-        receiptId: response.receipt,
-        amountRecieved: response.amount,
-        currency: response.currency,
-        createdAt: response.created_at,
-        status: response.status,
-      });
-      try {
-        // Render Order Confirmation page if saved succesfully
-        await paymentDetail.save();
-        res.status(200).json({
-          message: "Payment Order saved succesfully",
-          status: "OK",
-          title: "Confirm Order",
-          razorpayKeyId: razorpayKeyId,
-          paymentDetail: paymentDetail,
-        });
-      } catch (err) {
-        // Throw err if failed to save
-        if (err) throw err;
-      }
-    })
-    .catch((err) => {
-      // Throw err if failed to create order
-      if (err) throw err;
-    });
-};
 
+  try {
+    const response = await razorPayInstance.orders.create(options);
+    console.log(response);
+    res.json({
+      id: response.id,
+      currency: response.currency,
+      amount: response.amount,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 exports.verifyPayment = async (req, res, next) => {
   body = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
   let crypto = require("crypto");

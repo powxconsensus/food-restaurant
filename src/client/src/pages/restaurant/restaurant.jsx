@@ -8,6 +8,7 @@ import Review from "./review/review.component";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import { getRestaurantImageUrl } from "../../utils";
 
 // the review component for the restaurant page. works differently for logged in and not logged in people
 // it shows the already stored reviews and also askes the user for more restaurant reviews and stores them including the ratings
@@ -70,6 +71,7 @@ class Restaurant extends React.Component {
       );
     if (!this.state.restaurant) return <div>Loading...</div>;
     const { isOrder, isReview, restaurant } = this.state;
+    const { lastResId } = this.props;
     const { name, rating, images } = restaurant;
     return (
       <>
@@ -80,29 +82,47 @@ class Restaurant extends React.Component {
           <div className="res-images">
             <img
               className="res-image-item0"
-              src={images[0]}
+              src={getRestaurantImageUrl(images[0], lastResId)}
               alt="images not found"
             />
-            <img
-              className="res-image-item1"
-              src={images[1]}
-              alt="images not found"
-            />
-            <img
-              className="res-image-item2"
-              src={images[2]}
-              alt="images not found"
-            />
-            <img
-              className="res-image-item3"
-              src={images[3]}
-              alt="images not found"
-            />
-            <img
-              className="res-image-item4"
-              src={images[4]}
-              alt="images not found"
-            />
+            <div className="extra-res-images">
+              <img
+                className="res-image-item1"
+                src={
+                  images.length > 1
+                    ? getRestaurantImageUrl(images[1], lastResId)
+                    : "https://bit.ly/3KhrRXe"
+                }
+                alt="images not found"
+              />
+              <img
+                className="res-image-item2"
+                src={
+                  images.length > 2
+                    ? getRestaurantImageUrl(images[2], lastResId)
+                    : "https://bit.ly/3KhrRXe"
+                }
+                alt="images not found"
+              />
+              <img
+                className="res-image-item3"
+                src={
+                  images.length > 3
+                    ? getRestaurantImageUrl(images[3], lastResId)
+                    : "https://bit.ly/3KhrRXe"
+                }
+                alt="images not found"
+              />
+              <img
+                className="res-image-item4"
+                src={
+                  images.length > 4
+                    ? getRestaurantImageUrl(images[4], lastResId)
+                    : "https://bit.ly/3KhrRXe"
+                }
+                alt="images not found"
+              />
+            </div>
             <div className="res-details">
               <div className="res-name"> {name}</div>
               <div className="res-rating">
