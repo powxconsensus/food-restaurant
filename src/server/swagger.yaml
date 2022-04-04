@@ -311,6 +311,234 @@ paths:
         "404":
           description: "Pet not found"
 
+  /fd/fooditem/:
+    get:
+      summary: List of cart Items.
+      tags: [Food Item]
+      responses:
+        "200":
+          description: "Elements stored in Cart."
+          content:
+            application/json:
+              schema:
+                # $ref: '#/components/schemas/FoodItem'
+  /fd/foofitem/{id}:
+    patch:
+      tags:
+      - "Food Item"
+      summary: "Update the food item "
+      description: "Edit food item quantity prices etc."
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          # $ref: "#/definitions/Resturant"
+      responses:
+        default:
+          description: "successful operation"
+
+    delete:
+      tags:
+      - "Food Item"
+      summary: "Deletes a Food Item"
+      description: ""
+      operationId: "deleteFood"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "FoodId"
+        in: "path"
+        description: "Food id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Food not found"
+
+  /fd/foodItem/restaurant/{id}:
+    delete:
+      tags:
+      - "Food Item"
+      summary: "Deletes a Food Item from the specified resturant"
+      description: ""
+      operationId: "deleteFoodFromResturant"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "ResturantId"
+        in: "path"
+        description: "Resturant id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Resturant not found"
+
+  /fd/foodItem/{id}:
+    get:
+      tags:
+      - "Food Item"
+      summary: "Find Food by ID"
+      description: "Returns a single Food Item"
+      operationId: "getFoodById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "foodId"
+        in: "path"
+        description: "ID of Food to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: "#/definitions/Pet"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Pet not found"
+      security:
+      - api_key: []
+
+  /fd/review/:
+    post:
+      tags:
+      - "Review"
+      summary: "Add review to hotels and form"
+      description: ""
+      operationId: "Addd Review"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "reviewId"
+        in: "path"
+        description: "Add Review to hotels and food."
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "405":
+          description: "Invalid input"
+      security:
+      - petstore_auth:
+        - "write:resturants"
+        - "read:resturants"
+
+
+  /fd/review/{id}:
+    delete:
+      tags:
+      - "Review"
+      summary: "Deletes a Review"
+      description: "Delete a review from the specific resturant or food."
+      operationId: "deleteReviewFromResturant"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "ReviewId"
+        in: "path"
+        description: "Review id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Review not found"
+
+  /fd/review/restaurant/{id}:
+    get:
+      tags:
+      - "Review"
+      summary: "Find all Reviews by  the ID of a particular resturant."
+      description: "Returns all review of a given resturant"
+      operationId: "getReviewByResturantId"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "resturantId"
+        in: "path"
+        description: "Resturant ID to return all reviews"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: "#/definitions/Pet"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Resturant not found"
+      security:
+      - api_key: []
+
+
+/fd/review/fooditem/{id}:
+    get:
+      tags:
+      - "Review"
+      summary: "Find all Reviews by  the ID of a particular Food."
+      description: "Returns all review of a given Food"
+      operationId: "getReviewByFoodId"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "resturantId"
+        in: "path"
+        description: "Food ID to return all reviews"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            # $ref: "#/definitions/Pet"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Food not found"
+      security:
+      - api_key: []
+
+
 
 
 # components:
