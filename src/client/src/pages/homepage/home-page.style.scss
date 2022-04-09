@@ -1,7 +1,6 @@
 .home-page {
   padding: 20px;
   height: auto;
-  width: calc(100% - 40px);
   color: black;
   background: #db5a28;
   background: -webkit-linear-gradient(to top, #db5a28, #eba03c);
@@ -15,13 +14,14 @@
     padding: 10px 20px 10px 20px;
     background: #eba03c;
     background: -webkit-linear-gradient(to top, #db5a28, #c1e735);
-    background: linear-gradient(to top, #c1e735, #e5f0bc);
+    background: linear-gradient(to top, #db5a28, #c1e735);
     border-radius: 0.75em;
     font-family: sans-serif;
     color: #db5a28;
     text-align: center;
     text-shadow: #1e1f1b;
   }
+
   .list-out-items {
     display: flex;
     justify-content: space-around;

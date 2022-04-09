@@ -1,35 +1,46 @@
-.manage-restaurant-page{
-    width: 76%;
-    background-color: #6f5589;
-    min-height: 400px;
-    min-height: 300px;
-    color: #dcd0b7;
+.manage-restaurant-page {
+    width: 100%;
+    background-color: #db5a28;
+    height: 60%;
     font-weight: 800;
     text-align: center;
     font-family: sans-serif;
     font-size: larger;
     padding: 1% 13%;
-    p{
-        font-size: 36px;
-        margin: 0;
-        font-family: cursive;
-    }
-    .filter-restaurant-by-status{
-        display: flex;
-        background-color: red;
-        max-width: fit-content; 
+    margin-top: 3em;
 
+    .manage-restaurant-heading {
+        margin: 2em;
+        background-color: #f5c664;
+        color: black;
+        font-size: 48px;
+        margin: 0;
+        font-family: sans-serif;
+        border-radius: 0 0.5em 0 0.5em;
+    }
+
+
+
+    .filter-restaurant-by-status {
+        margin: 1em 0;
+
+        display: flex;
+        max-width: fit-content;
         width: 100%;
-        .filter-button{
+
+        .filter-button {
             background-color: #f5c664;
             color: black;
             display: inline-block;
-            border-radius: 4px;
-            margin: 0 5px;
-            padding: 4px;
+            border-radius: 0.5em;
+            margin-right: 2em;
+            padding: 0.5em;
             text-align: center;
             cursor: pointer;
-            &:hover{
+
+            font-size: larger;
+
+            &:hover {
                 background-color: #caa5a5;
                 color: white;
                 font-weight: 900;
@@ -37,8 +48,8 @@
         }
 
     }
- 
-    .restaurant-application-button{
+
+    .restaurant-application-button {
         background-color: rgb(113, 118, 195);
         padding: 8px;
         border-radius: 1em;
@@ -47,7 +58,9 @@
         cursor: pointer;
         right: 0;
         display: block;
-        &:hover{
+        align-self: center;
+
+        &:hover {
             background-color: rgb(55, 165, 55);
             font-weight: 1250;
         }

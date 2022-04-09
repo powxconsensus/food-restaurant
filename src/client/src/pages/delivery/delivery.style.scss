@@ -1,10 +1,11 @@
 .delivery-container {
   width: 100%;
   height: auto;
-  margin-top: -35px;
+  margin-top: 3em;
   background: #c6d684;
   background: -webkit-linear-gradient(to top, #0f7514, #f1ee2c);
   background: linear-gradient(to top, #0f8815, #f1ee2c);
+
   .content {
     font-size: 170%;
     font-family: sans-serif;
@@ -15,6 +16,7 @@
     width: 80%;
     padding: 5% 10% 5% 10%;
   }
+
   .heading {
     font-size: 500%;
     font-weight: 1200;

@@ -1,16 +1,17 @@
-.restaurant-list-item{
+.restaurant-list-item {
     height: 150px;
     margin-top: 1em;
-    margin-bottom:0.5em;
+    margin-bottom: 0.5em;
     border-radius: 8px;
     width: 100%;
-    background-color: aliceblue;
+    background-color: #cbdf56;
     display: flex;
     align-items: center;
     cursor: pointer;
- 
-    font-size:large;
-    .imgdiv{
+
+    font-size: large;
+
+    .imgdiv {
         align-items: left;
         text-align: left;
         display: inline-block;
@@ -18,33 +19,39 @@
         width: 20%;
         height: 100%;
         color: black !important;
-        img{
+        margin-right: 0.5em;
+
+        img {
             height: 100%;
             width: 100%;
         }
+
+        border-radius: 0.5em;
     }
 
-    .desc{
-        background-color: aliceblue;
-        border: none;
+    .desc {
+        background-color: rgb(195, 227, 255);
+        margin-right: 30em;
         color: black;
-        padding: 30px 200px;
+        padding: 1em 1.5em;
+        margin: 4em 2em;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         border-radius: 1em;
-        font-size: 16px;
+        font-size: 24px;
         margin: 4px 2px;
         cursor: pointer;
-    
-        &:hover{
+
+        &:hover {
             background-color: #c7c473;
             color: rgb(66, 62, 62);
             font-size: medium;
             font-weight: 800;
         }
     }
-    .delete_button{
+
+    .delete_button {
         background-color: aliceblue;
         border: none;
         color: black;
@@ -56,8 +63,9 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
-    
-        &:hover{
+        align-self: center;
+
+        &:hover {
             background-color: #fa5e5e;
             color: white;
             font-size: medium;

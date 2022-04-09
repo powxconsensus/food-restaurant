@@ -88,7 +88,7 @@ class SignUp extends React.Component {
                     />
                     <input
                       type="text"
-                      name="Last Name"
+                      name="lastName"
                       class="login__input"
                       placeholder="last Name"
                       value={this.state.lastName}

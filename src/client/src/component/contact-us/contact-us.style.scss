@@ -1,10 +1,11 @@
 .contactus-container {
   width: 100%;
-  height: auto;
-  margin-top: -35px;
+  height: 40em;
+  margin-top: 3em;
   background: #e5f0bc;
-  background: -webkit-linear-gradient(to top, #0f7514, #ebeb6e);
-  background: linear-gradient(to top, #0f7514, #ebeb6e);
+  background: -webkit-linear-gradient(to top, #db5a28, #ebeb6e);
+  background: linear-gradient(to top, #db5a28, #ebeb6e);
+
   .heading {
     font-size: 28px;
     font-weight: 500;
@@ -14,7 +15,7 @@
     background: linear-gradient(to top, #eaecc6, #0f7514);
     text-align: center;
     border-radius: 0.5em;
-    padding: 0.01em;
+    padding: 0.5em;
   }
 
   .content {
@@ -24,7 +25,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
     padding: 5% 10% 5% 10%;
   }
 }

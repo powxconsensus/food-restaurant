@@ -1,11 +1,13 @@
 .member-page {
-  width: calc(100% - 40px);
+  width: 100%;
   background: #0f7514;
-  background: -webkit-linear-gradient(to top, #0f7514, #eaecc6);
-  background: linear-gradient(to top, #0f7514, #eaecc6);
+  background: -webkit-linear-gradient(to top, #db5a28, #eba03c);
+  background: linear-gradient(to top, #db5a28, #eba03c);
   padding: 20px;
+  margin-top: 3em;
   min-height: 52%;
   height: auto;
+
   .heading {
     font-size: 30px;
     font-family: sans-serif;
@@ -14,11 +16,12 @@
     margin-top: -30px;
     background: #e1e9eb;
     border-radius: 1em;
-    background: -webkit-linear-gradient(to top, #0f7514, #eeea21);
-    background: linear-gradient(to top, #0f7514, #eeea21);
-    padding: .001em;
+    background: -webkit-linear-gradient(to top, #0f7514, #eaecc6);
+    background: linear-gradient(to top, #0f7514, #eaecc6);
+    padding: 0.4em;
     margin: .001em;
   }
+
   .members {
     display: flex;
     justify-content: space-between;
