@@ -1,21 +1,33 @@
-.ind-app{
+.ind-app {
     height: 100px;
-    background-color: rebeccapurple;
-    width: calc(100% - 20px);
+    background: linear-gradient(to top, #414141, #777777);
+    border-radius: 1em;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
-    .status-btn{
+    padding-left: 1em;
+    margin-bottom: 1em;
+
+    .restaurant-desc {
+        color: #7878f8;
+        font-size: 2em;
+        font-weight: 700;
+        margin-left: 1em;
+    }
+
+    .status-btn {
         display: flex;
-        .btn{
-            margin-right: 10px;
-            background-color: blue;
+
+        .btn {
+            margin-right: 1em;
+            background-color: white;
             cursor: pointer;
-            padding: 10px;
-            border-radius: 10px;
-            &:hover{
-                background-color: rgb(110, 110, 192);
+            padding: 1em;
+            border-radius: 1em;
+
+            &:hover {
+                background-color: #6e6ec0;
             }
         }
     }

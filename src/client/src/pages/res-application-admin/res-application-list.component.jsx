@@ -31,7 +31,9 @@ class RestaurantApplicationList extends React.Component {
     if (user.role !== "admin") return <FoutZeroFour />;
     return (
       <div className="res-appl-admin">
-        <div className="heading">Accept or Reject Application</div>
+        <div className="heading-container">
+          <div className="heading">Accept or Reject Application</div>
+        </div>
         {this.state.resList.map((res) => (
           <IndApplication key={res._id} {...res} />
         ))}

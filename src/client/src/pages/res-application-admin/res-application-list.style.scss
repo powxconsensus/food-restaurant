@@ -1,14 +1,23 @@
-.res-appl-admin{
+.res-appl-admin {
     width: 100%;
-    background-color: red;
-    min-height: 300px;
-    .heading{
-        
-        padding: 10px;
-        display: flex;
+    background-color: #db5a28;
+    min-height: max-content;
+    margin-top: 2.5em;
+    padding: 1em;
+
+    .heading-container {
+        text-align: center;
         align-items: center;
-        font-size:20px;
-        font-weight: 900;
-        font-family: 'Courier New', Courier, monospace;
+
+        .heading {
+            padding-bottom: 0.5em;
+            align-items: center;
+            font-size: 40px;
+            font-weight: 900;
+            font: "roboto";
+            text-align: center;
+        }
     }
-} 
+
+    border-top: 1em;
+}

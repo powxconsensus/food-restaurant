@@ -41,7 +41,9 @@ class Admin extends React.Component {
         return (
           <div className="admin-page">
             <div className="heading">
-              <p>Restaurant List</p>
+              <h1>Restaurant List</h1>
+            </div>
+            <div className="res-appl-container">
               <div
                 className="res-appl"
                 onClick={() => this.props.navigate("/admin/res-application")}
