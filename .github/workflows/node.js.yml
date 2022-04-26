@@ -23,6 +23,4 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - run: cd src/server
-      - run: npm install
       - run: npm test
