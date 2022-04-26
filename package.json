@@ -4,9 +4,9 @@
   "description": "backend and frontend ",
   "main": "index.js",
   "scripts": {
-    "set": "npm install && cd src/server && npm install && cd ../client && npm install",
+    "set": "npm install && cd src/server && npm install && cd ../client && npm i",
     "start": "concurrently \"cd src/server && nodemon server.js\" \"cd src/client && npm start\"",
-    "build": "cd src/server && docker build . && cd ../client && docker build ."
+    "test": "cd src/server && npm install && npm test"
   },
   "repository": {
     "type": "git",
