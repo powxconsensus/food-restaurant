@@ -101,7 +101,7 @@ class FoodItem extends React.Component {
         </div>
         {toExtend ? (
           <div className="extend-this-edit-option">
-            <p>Edit</p>
+            <p>Add New Food Item</p>
             <div className="food-item-edit-form">
               <div className="fi-input-field">
                 <label htmlFor="name">Name: </label>
@@ -110,35 +110,35 @@ class FoodItem extends React.Component {
                   name="name"
                   value={this.state.name}
                   onChange={this.handleOnChange}
-                />
-              </div>
+                /><br/>
+              </div><br/>
               <div className="fi-input-field">
-                <label htmlFor="description">description: </label>
+                <label htmlFor="description">Description: </label>
                 <input
                   type="text"
                   name="description"
                   value={this.state.description}
                   onChange={this.handleOnChange}
                 />
-              </div>
+              </div><br/>
               <div className="fi-input-field">
-                <label htmlFor="pricePerQuantity">pricePerQuantity: </label>
+                <label htmlFor="pricePerQuantity">Price Per Quantity: </label>
                 <input
                   type="text"
                   name="pricePerQuantity"
                   value={this.state.pricePerQuantity}
                   onChange={this.handleOnChange}
                 />
-              </div>
+              </div><br/>
               <div className="fi-input-field">
-                <label htmlFor="quantity">quantity: </label>
+                <label htmlFor="quantity">Quantity: </label>
                 <input
                   type="text"
                   name="quantity"
                   value={this.state.quantity}
                   onChange={this.handleOnChange}
                 />
-              </div>
+              </div><br/>
               <div className="fi-input-field">
                 <label htmlFor="image">Add Food Image: </label>
                 <input
@@ -153,8 +153,8 @@ class FoodItem extends React.Component {
                   }}
                 />
               </div>
-
-              <div className="save-btn" onClick={this.handleSubmit}>
+                   
+              <div className="save-btn" onClick={this.handleSubmit} className = "btn btn-outline-primary btn-lg">
                 Save
               </div>
             </div>
