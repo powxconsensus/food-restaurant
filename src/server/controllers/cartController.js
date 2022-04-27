@@ -1,6 +1,7 @@
 const Cart = require("./../models/cartModel");
 const FoodItem = require("./../models/foodItemsModel");
 const catchAsync = require("./../utils/catchAsync");
+// const { redisClient } = require('./../utils/redis');
 
 exports.createCartIfNotExist = catchAsync(async (req, res, next) => {
   let userCart = req.user.cart;
@@ -142,9 +143,26 @@ exports.clearCart = catchAsync(async (req, res, next) => {
 });
 
 exports.getCartItems = catchAsync(async (req, res, next) => {
-  res.status(200).json({
-    status: "OK",
-    message: "user cart is as follows",
-    userCart: req.userCart,
-  });
+
+  // const data = await redisClient.get("userCart");
+  // if(data != null){
+  //   return res.status(200).json({
+  //     status:"OK",
+  //     message:"user cart is as follows",
+  //     userCart:data,
+  //   });
+  // } else{
+  //   try{
+      // await redisClient.set("userCart",JSON.stringify(req.userCart));
+      res.status(200).json({
+        status: "OK",
+        message: "user cart is as follows",
+        userCart: req.userCart,
+      });
+    // }
+  //   catch(error){
+  //     console.log(error);
+  //     return error;
+  //   }
+  // }  
 });

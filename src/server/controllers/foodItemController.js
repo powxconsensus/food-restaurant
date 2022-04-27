@@ -5,6 +5,7 @@ const multer = require("multer");
 const sharp = require("sharp");
 const fs = require("fs");
 const { mkDir, filterObj } = require("./../utils/util");
+// const redisClient = require("./../utils/redis");
 
 exports.addFoodItemInRestaurant = catchAsync(async (req, res, next) => {
   const { name, description, pricePerQuantity, restaurantId, quantity } =
@@ -54,33 +55,58 @@ exports.deleteFoodItem = catchAsync(async (req, res, next) => {
 });
 
 exports.getFoodItemByRestaurantId = catchAsync(async (req, res, next) => {
-  const { restaurantId } = req.params;
-  const restaurant = await Restaurant.findById(restaurantId);
-  if (!restaurant)
-    return res.status(404).json({
-      message: "no restaurant found with givenId",
-      status: "fail",
+  // const data = redisClient.get("getFoodItemByResturantId");
+
+  // if (data != null) {
+  //   res.status(200).json({
+  //     status: "OK",
+  //     message: "food Items in given restaurant are as follows",
+  //     data,
+  //   });
+  // } else {
+    const { restaurantId } = req.params;
+    const restaurant = await Restaurant.findById(restaurantId);
+    if (!restaurant)
+      return res.status(404).json({
+        message: "no restaurant found with givenId",
+        status: "fail",
+      });
+    const foodItems = await FoodItem.find({ restaurant: restaurant._id });
+    // await redisClient.set("getFoodItemByResturantId",JSON.stringify(foodItems));
+
+    res.status(200).json({
+      status: "OK",
+      message: "food Items in given restaurant are as follows",
+      foodItems,
     });
-  const foodItems = await FoodItem.find({ restaurant: restaurant._id });
-  res.status(200).json({
-    status: "OK",
-    message: "food Items in given restaurant are as follows",
-    foodItems,
-  });
+  // }
 });
 
 exports.getFoodItemById = catchAsync(async (req, res, next) => {
-  const foodItem = await FoodItem.findById(req.params.foodItemId);
-  if (!foodItem)
-    return res.status(404).json({
-      status: "fail",
-      message: "No food item found with given Id",
+  
+  // const data = redisClient.get("getFoodItemById");
+  // if(data != null){
+  //   res.status(200).json({
+  //     status: "OK",
+  //     message: "food item with given id is",
+  //     data,
+  //   });
+  // }
+  // else{
+    const foodItem = await FoodItem.findById(req.params.foodItemId);
+    redisClient.set('getFoodItemById',JSON.stringify(foodItem));
+    if (!foodItem)
+      return res.status(404).json({
+        status: "fail",
+        message: "No food item found with given Id",
+      });
+    res.status(200).json({
+      status: "OK",
+      message: "food item with given id is",
+      foodItem,
     });
-  res.status(200).json({
-    status: "OK",
-    message: "food item with given id is",
-    foodItem,
-  });
+  // }
+  
 });
 
 //update foodItem
