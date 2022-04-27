@@ -5,7 +5,7 @@ const multer = require("multer");
 const sharp = require("sharp");
 const fs = require("fs");
 const { mkDir, filterObj } = require("./../utils/util");
-const redisClient = require("./../utils/redis");
+// const redisClient = require("./../utils/redis");
 
 exports.addFoodItemInRestaurant = catchAsync(async (req, res, next) => {
   const { name, description, pricePerQuantity, restaurantId, quantity } =
@@ -76,7 +76,7 @@ exports.getFoodItemById = catchAsync(async (req, res, next) => {
   
 
     const foodItem = await FoodItem.findById(req.params.foodItemId);
-    redisClient.set('getFoodItemById',JSON.stringify(foodItem));
+    // redisClient.set('getFoodItemById',JSON.stringify(foodItem));
     if (!foodItem)
       return res.status(404).json({
         status: "fail",
