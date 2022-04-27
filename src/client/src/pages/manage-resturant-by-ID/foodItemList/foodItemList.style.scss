@@ -3,11 +3,12 @@
    
     .food-item-list-header{
         display: flex;
+        margin-left: 20px;
         color: #fa5e5e;
         justify-content:space-between;
         align-items: center;
         p{
-            font-size: 30px;            
+            font-size: 40px;            
         }
         .add-food-item-btn{
             width: fit-content;

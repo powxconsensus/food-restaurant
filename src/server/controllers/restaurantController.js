@@ -64,7 +64,7 @@ exports.deleteRestaurant = catchAsync(async (req, res) => {
 });
 
 exports.getRecommendationRestaurant = catchAsync(async (req, res) => {
-  const recommendationRestaurant = await Restaurant.find({
+    const recommendationRestaurant = await Restaurant.find({
     applicationStatus: "accepted",
   });
   res.status(200).json({

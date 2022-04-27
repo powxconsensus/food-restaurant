@@ -20,6 +20,7 @@
   "homepage": "https://github.com/priyanshu-678/ChitChat#readme",
   "dependencies": {
     "concurrently": "^6.5.1",
-    "mocha": "^9.2.2"
+    "mocha": "^9.2.2",
+    "run": "^1.4.0"
   }
 }
